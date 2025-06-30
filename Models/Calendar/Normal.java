@@ -10,7 +10,7 @@ public class Normal extends CalendarParentModel{
     }
 
     //getters
-    public boolean isPubliclyAvailable() {
+    public boolean getAvailability() {
         return isPubliclyAvailable;
     }
 }
