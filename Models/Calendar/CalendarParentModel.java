@@ -26,6 +26,14 @@ public class CalendarParentModel {
     public ArrayList<EntryModel> getEntries() {
         return entries;
     }
+    public CalendarParentModel getCalendar() {
+        return this;
+    }
+
+    //setters
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
     //methods for children classes only

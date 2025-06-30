@@ -12,10 +12,15 @@ public class Family extends CalendarParentModel {
     }
 
     //getters
-    public boolean isPubliclyAvailable() {
+    public boolean getAvailability() {
         return isPubliclyAvailable;
     }
     public String getCode() {
         return accessCode;
+    }
+
+    //setters
+    public void setCode(String newAccessCode){
+        this.accessCode = newAccessCode;
     }
 }
