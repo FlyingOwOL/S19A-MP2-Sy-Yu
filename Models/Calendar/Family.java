@@ -1,10 +1,21 @@
 package Models.Calendar;
 
 import Models.Account.AccountModel;
-import Models.Entry.EntryModel;
 
-import java.util.ArrayList;
+public class Family extends CalendarParentModel {
+    private final boolean isPubliclyAvailable = true;
+    private String accessCode;
 
-public class Family {
-    
+    public Family(String name, AccountModel owner, String accessCode) {
+        super(name, owner);
+        this.accessCode = accessCode;
+    }
+
+    //getters
+    public boolean isPubliclyAvailable() {
+        return isPubliclyAvailable;
+    }
+    public String getCode() {
+        return accessCode;
+    }
 }
