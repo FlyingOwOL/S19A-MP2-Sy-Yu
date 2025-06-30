@@ -6,9 +6,9 @@ import Models.Entry.EntryModel;
 import java.util.ArrayList;
 
 public class CalendarParentModel {
-    protected String name;
-    protected AccountModel owner;
-    protected ArrayList<EntryModel> entries; //inherited by children classes
+    private String name;
+    private AccountModel owner;
+    private ArrayList<EntryModel> entries; //inherited by children classes
 
     public CalendarParentModel(String name, AccountModel owner){
         this.entries = new ArrayList<EntryModel>();
@@ -29,10 +29,10 @@ public class CalendarParentModel {
 
 
     //methods for children classes only
-    protected void addEntry(EntryModel entry) {
+    public void addEntry(EntryModel entry) {
         entries.add(entry);
     }
-    protected void editEntry(EntryModel newEntry, EntryModel oldEntry){
+    public void editEntry(EntryModel newEntry, EntryModel oldEntry){
         int index = entries.indexOf(oldEntry);
         if (index != -1){
             entries.set(index, newEntry);
@@ -41,7 +41,7 @@ public class CalendarParentModel {
             System.out.println("Entry not found.");
         }
     }
-    protected void deleteEntry(EntryModel entry) {
+    public void deleteEntry(EntryModel entry) {
         entries.remove(entry);
     }
 }

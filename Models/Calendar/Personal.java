@@ -1,10 +1,16 @@
 package Models.Calendar;
 
 import Models.Account.AccountModel;
-import Models.Entry.EntryModel;
 
-import java.util.ArrayList;
+public class Personal extends CalendarParentModel{
+    private final boolean isPubliclyAvailable = false;
 
-public class Personal {
-    
+    public Personal(String name, AccountModel owner){
+        super(name, owner);
+    }
+
+    //getters
+    public boolean isPubliclyAvailable() {
+        return isPubliclyAvailable;
+    }
 }
