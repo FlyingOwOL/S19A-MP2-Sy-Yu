@@ -10,10 +10,7 @@ import java.util.ArrayList;
 
 
 public class Main {
-    public ArrayList<CalendarParentModel> publicCalendars = new ArrayList<CalendarParentModel>();
-    public ArrayList<AccountModel> accounts = new ArrayList<AccountModel>();
-    public ArrayList<AccountModel> deactivatedAccounts = new ArrayList<AccountModel>();
-    public void main(String[] args){
-
+    public static void main(String[] args){
+        new AccountLoginPage();
     }    
 }
