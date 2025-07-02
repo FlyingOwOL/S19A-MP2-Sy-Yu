@@ -31,6 +31,14 @@ public class AccountModel {
     }
 
 
+
+    /*
+     * Checks if the given password matches the account's password
+     * @param password The password to check
+     */
+    public boolean checkAuthority(String password){
+        return this.password.equals(password);
+    }
     /*
      * Deactivates the account
      */
