@@ -25,7 +25,7 @@ public class AccountLoginPage extends JFrame{
     
     public AccountLoginPage(){
         this.setTitle("Login Page");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(500, 400);
         this.setResizable(false);
         this.setLayout(null);

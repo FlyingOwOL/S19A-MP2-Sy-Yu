@@ -25,7 +25,7 @@ public class AccountPage extends JFrame{
     private JButton jumpDateButton = new JButton("Jump to Date");
 
     private String[] entrySelection = {"Event", "Task", "Meeting", "Journal"};
-    private String[] accountSelection = {"Account 1", "Add Calendar", "Delete Calendar","Sign out"};
+    private String[] accountSelection = {"Account 1", "Add Calendar", "Delete Calendar", "View Journal","Sign out"};
     private String[] calendarDisplayModes = {"Month", "Week"};
     private JComboBox<String> entriesBox = new JComboBox<>(entrySelection);
     private JComboBox<String> accountsBox = new JComboBox<>(accountSelection);
@@ -33,7 +33,7 @@ public class AccountPage extends JFrame{
     
     public AccountPage(){
         this.setTitle("Calendar Page");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(1010, 637);
         this.setResizable(false);
         this.setLayout(null);               
