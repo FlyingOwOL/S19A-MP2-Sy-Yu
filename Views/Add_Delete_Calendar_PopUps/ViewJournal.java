@@ -24,7 +24,7 @@ public class ViewJournal extends JFrame {
     private JPanel headerPanel = new JPanel();
     private JPanel contentPanel = new JPanel();
     
-    private JButton closeButton = new JButton("Close");
+    private JButton closeButton = new JButton("Submit");
 
     private JScrollPane scrollPane = new JScrollPane(journalContent);
 

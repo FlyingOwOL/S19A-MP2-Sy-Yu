@@ -1,6 +1,6 @@
 package Views.MonthlyView;
 
 
-public class CalendarView {
+public class CalendarMonthlyView {
     
 }

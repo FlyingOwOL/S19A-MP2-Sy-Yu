@@ -1,5 +1,5 @@
 package Views.WeeklyView;
 
-public class CalendarView {
+public class CalendarWeeklyView {
     
 }
