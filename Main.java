@@ -15,7 +15,6 @@ import Views.Add_Delete_Calendar_PopUps.ViewJournal;
 
 public class Main {
     public static void main(String[] args){
-        new AccountLoginPage();
         new AccountPage();
     }    
 }

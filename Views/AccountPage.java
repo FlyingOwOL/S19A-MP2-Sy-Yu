@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Dimension;
 
 public class AccountPage extends JFrame{
     private JPanel headerPanel = new JPanel();
@@ -18,7 +20,6 @@ public class AccountPage extends JFrame{
 
     private JLabel dateLabel = new JLabel("Jun - Jul 2025");
     private JLabel footerLabel = new JLabel("Footer Information");
-    private JLabel sampleInput = new JLabel("Change layout here");
 
     private JButton previousButton = new JButton ("<-");
     private JButton nextButton = new JButton ("->");
@@ -30,6 +31,9 @@ public class AccountPage extends JFrame{
     private JComboBox<String> entriesBox = new JComboBox<>(entrySelection);
     private JComboBox<String> accountsBox = new JComboBox<>(accountSelection);
     private JComboBox<String> calendarDisplayBox = new JComboBox<>(calendarDisplayModes);
+
+    private CalendarMonthlyView monthlyCalendarView = new CalendarMonthlyView();
+    private CalendarWeeklyView weeklyCalendarView = new CalendarWeeklyView();
     
     public AccountPage(){
         this.setTitle("Calendar Page");
@@ -73,9 +77,8 @@ public class AccountPage extends JFrame{
         headerPanel.add(calendarDisplayBox);
 
         //components for calendarPanel
-        calendarPanel.setLayout(null);
-        sampleInput.setBounds(0, 0, 900, 400);
-        calendarPanel.add(sampleInput);
+        calendarPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        calendarPanel.add(weeklyCalendarView);
 
         //components for footerPanel
         footerPanel.setLayout(null);
