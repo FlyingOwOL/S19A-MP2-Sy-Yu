@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class CalendarParentModel {
     private String name;
     private AccountModel owner;
-    private ArrayList<EntryModel> entries; //inherited by children classes
+    private ArrayList<EntryModel> entries; //includes all calendar entries such as events, tasks, etc.
 
     public CalendarParentModel(String name, AccountModel owner){
         this.entries = new ArrayList<EntryModel>();
