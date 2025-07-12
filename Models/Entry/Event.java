@@ -53,27 +53,27 @@ public class Event extends EntryModel{
     // Setters
 
     /**
-     * This setter sets the venue of the event.
+     * This setter sets the start date of the event.
      * 
-     * @param venue the new venue of the event
+     * @param startDate the new start date of the event
      */
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
     /**
-     * This setter sets the organizer of the event.
+     * This setter sets the end date of the event.
      * 
-     * @param organizer the new organizer of the event
+     * @param endDate the new end date of the event
      */
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
     /**
-     * This setter sets the venue of the event.
+     * This method checks if the start date is valid.
      * 
-     * @param venue the new venue of the event
+     * @return true if the start date is valid
      */
     public boolean isValidStartDate(){
         return true;
@@ -82,7 +82,7 @@ public class Event extends EntryModel{
     /**
      * This method checks if the end date is valid.
      * 
-     * @return true if the end date is valid, false otherwise
+     * @return true if the end date is valid
      */
     public boolean isValidEndDate(){
         return true;
