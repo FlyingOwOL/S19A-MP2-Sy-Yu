@@ -7,7 +7,7 @@ import java.time.LocalDate;                 // We use this to get the start and 
  * This class represents an event entry in the calendar.
  * 
  * An event has a title, venue, organizer, and start and end dates.
- * It extends the EntryModel class to inherit a common title.
+ * It extends the EntryModel class to inherit a common entry.
  * 
  */
 public class Event extends EntryModel{
