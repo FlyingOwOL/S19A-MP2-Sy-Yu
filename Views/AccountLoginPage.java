@@ -1,31 +1,43 @@
-package Views;
+package Views;                  // We use this package to organize our code
 
-import Utilities.FixedValues;
+import Utilities.FixedValues;   // We use this to set fixed values for fonts and other UI elements
+import javax.swing.JButton;     // We use this to create buttons
+import javax.swing.JFrame;      // We use this to create the main frame of the pop-up
+import javax.swing.JLabel;      // We use this to create labels for text display
+import javax.swing.JPanel;      // We use this to create panels for organizing components
+import javax.swing.JTextField;  // We use this to create text fields for user input
 
-import javax.swing.JFrame;
-
-import java.util.Calendar;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
+/**
+ * This class represents a login page for the calendar application.
+ * It allows users to enter their username and password, and provides options to create an account or log in.
+ * 
+ * It extends JFrame to create a window for the login page.
+ */
 public class AccountLoginPage extends JFrame{
+    // Panels for the header, buttons, and content sections
     private JPanel headerPanel = new JPanel();
     private JPanel buttonsPanel = new JPanel();
     private JPanel contentPanel = new JPanel();
 
+    // Labels for the welcome title, username, and password fields
     private JLabel welcomeTitle = new JLabel("Welcome to the Calendar App");
     private JLabel usernameLabel = new JLabel("Username:");
     private JLabel passwordLabel = new JLabel("Password:");
 
+    // Buttons for creating an account and logging in
     private JButton createAccountButton = new JButton("Create Account");
     private JButton loginButton = new JButton("Login");
     
+    // Text fields for entering the username and password
     private JTextField usernameField = new JTextField();
     private JTextField passwordField = new JTextField();
     
+    /**
+     * This constructor initializes the AccountLoginPage frame.
+     * It sets the title, size, layout, and adds components to the frame.
+     * 
+     * It also sets the background colors for the header, content, and buttons panels.
+     */
     public AccountLoginPage(){
         this.setTitle("Login Page");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -38,14 +50,14 @@ public class AccountLoginPage extends JFrame{
         contentPanel.setBounds(0, 100, 500, 100);
         buttonsPanel.setBounds(0, 200, 500, 200);
 
-        //components for headerPanel
+        // Components for headerPanel of Welcome title
         headerPanel.setLayout(null);        
         welcomeTitle.setFont(FixedValues.TITLE_FONT);
         welcomeTitle.setBounds(75, 20, 400, 50);
 
         headerPanel.add(welcomeTitle);
 
-        //components for contentPanel
+        // Components for contentPanel
         contentPanel.setLayout(null);        
         usernameLabel.setFont(FixedValues.LABEL_FONT);
         usernameLabel.setBounds(20, 0, 100, 50);
@@ -62,12 +74,15 @@ public class AccountLoginPage extends JFrame{
         contentPanel.add(passwordLabel);
         contentPanel.add(passwordField);
 
-        //components for buttonsPanel
-        buttonsPanel.setLayout(null);         
+        // Components for buttonsPanel
+        buttonsPanel.setLayout(null);
+        
+        // Create Account button
         createAccountButton.setFont(FixedValues.TITLE_FONT);
         createAccountButton.setFocusable(false);
         createAccountButton.setBounds(125, 30, 250, 50);
 
+        // Login button
         loginButton.setFont(FixedValues.TITLE_FONT);
         loginButton.setFocusable(false);
         loginButton.setBounds(150, 100, 200, 50);

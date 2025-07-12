@@ -16,7 +16,7 @@ public class CalendarParentModel {
     private ArrayList<EntryModel> entries;   // This includes all calendar entries such as events, tasks, etc.
 
     /**
-     * This constructor constructs a new CalendarParentModel with the specified name and owner.
+     * This constructor initializes a new CalendarParentModel with the specified name and owner.
      * It initializes the entries list as an empty ArrayList.
      * 
      * @param name  the name of the calendar

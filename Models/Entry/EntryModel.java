@@ -15,7 +15,7 @@ public class EntryModel {
     private LocalDate date;         // The date of the entry
 
     /**
-     * This constructor constructs a new EntryModel with the specified title.
+     * This constructor initializes a new EntryModel with the specified title.
      * It initializes details as an empty string and the date as the current date.
      *
      * @param title the title of the entry

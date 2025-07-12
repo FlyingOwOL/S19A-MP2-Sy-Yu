@@ -13,7 +13,7 @@ public class Normal extends CalendarParentModel{
     private final boolean isPubliclyAvailable = true;   // Indicates that the normal calendar is publicly available
 
     /**
-     * This constructor constructs a new Normal calendar with the specified name and owner.
+     * This constructor initializes a new Normal calendar with the specified name and owner.
      * It initializes the name and owner using the superclass constructor
      * 
      * @param name  the name of the normal calendar

@@ -14,7 +14,7 @@ public class Family extends CalendarParentModel {
     private String accessCode;                          // The access code for the family calendar
 
     /**
-     * This constructor constructs a new Family calendar with the specified name, owner, and access code.
+     * This constructor initializes a new Family calendar with the specified name, owner, and access code.
      * It initializes the name and owner using the superclass constructor
      * 
      * @param name        the name of the family calendar

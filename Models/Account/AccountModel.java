@@ -18,7 +18,7 @@ public class AccountModel {
     private boolean activeStatus;                       // The active status of the account (true if active, false if deactivated)
 
     /**
-     * This constructor constructs a new AccountModel with the specified name and password.
+     * This constructor initializes a new AccountModel with the specified name and password.
      * It initializes the calendars list and sets the active status to true.
      * 
      * It also creates a personal calendar with the same name and owner.

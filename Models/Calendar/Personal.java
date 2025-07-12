@@ -13,7 +13,7 @@ public class Personal extends CalendarParentModel{
     private final boolean isPubliclyAvailable = false;  // Indicates that the personal calendar is privately available
 
     /**
-     * This constructor constructs a new Personal calendar with the specified name and owner.
+     * This constructor initializes a new Personal calendar with the specified name and owner.
      * It initializes the name and owner using the superclass constructor
      * 
      * @param name  the name of the personal calendar

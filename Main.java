@@ -1,4 +1,4 @@
-import Controllers.MainController;
+import Controllers.MainController;  // Import the MainController class
 
 
 public class Main {

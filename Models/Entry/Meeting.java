@@ -16,7 +16,7 @@ public class Meeting extends EntryModel{
     private LocalDate endTime;          // The end time of the meeting
 
     /**
-     * This constructor constructs a new Meeting with the specified title and modality.
+     * This constructor initializes a new Meeting with the specified title and modality.
      * It initializes the title using the superclass constructor.
      * 
      * @param title    the title of the meeting

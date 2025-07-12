@@ -17,7 +17,7 @@ public class Event extends EntryModel{
     private LocalDate endDate;      // The end date of the event
     
     /**
-     * This constructor constructs a new Event with the specified venue, and owner.
+     * This constructor initializes a new Event with the specified venue, and owner.
      * It initializes the title using the superclass constructor. 
      * 
      * @param title  the title of the event

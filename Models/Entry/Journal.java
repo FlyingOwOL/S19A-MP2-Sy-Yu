@@ -12,7 +12,7 @@ package Models.Entry;   // We use this package to organize our code
 public class Journal extends EntryModel{
 
     /**
-     * This constructor constructs a new Journal with the specified title and details.
+     * This constructor initializes a new Journal with the specified title and details.
      * It initializes the title using the superclass constructor.
      * 
      * @param title
