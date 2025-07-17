@@ -9,9 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.Dimension;
+import java.awt.event.ActionListener;
 
-public class AccountPage extends JFrame{
+public class AccountPage extends JFrame {
     private JPanel headerPanel = new JPanel();
     private JPanel calendarPanel = new JPanel();
     private JPanel footerPanel = new JPanel();
@@ -78,7 +78,7 @@ public class AccountPage extends JFrame{
 
         //components for calendarPanel
         calendarPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        calendarPanel.add(weeklyCalendarView);
+        calendarPanel.add(monthlyCalendarView);
 
         //components for footerPanel
         footerPanel.setLayout(null);
@@ -101,5 +101,41 @@ public class AccountPage extends JFrame{
         this.add(calendarPanel);
         this.add(footerPanel);
         this.setVisible(true);
+    }
+
+    public String getSelectedCalendarDisplay(){
+        return (String) calendarDisplayBox.getSelectedItem();
+    }
+
+    public String getSelectedEntry(){
+        return (String) entriesBox.getSelectedItem();
+    }
+
+    public String getSelectedAccount(){
+        return (String) accountsBox.getSelectedItem();
+    }
+
+    public void changeCalendarDisplay(String displayMode) {
+        if (displayMode.equals("Month")) {
+            calendarPanel.remove(weeklyCalendarView);
+            calendarPanel.add(monthlyCalendarView);
+        } else {
+            calendarPanel.remove(monthlyCalendarView);
+            calendarPanel.add(weeklyCalendarView);
+        }
+        calendarPanel.revalidate();
+        calendarPanel.repaint();
+    }
+
+    public void changeCalendarDisplay(ActionListener e){
+        calendarDisplayBox.addActionListener(e);
+    }
+
+    public void selectPopUps(ActionListener e){
+        entriesBox.addActionListener(e);
+    }
+
+    public void changeAccountSelection(ActionListener e) {
+        accountsBox.addActionListener(e);
     }
 }
