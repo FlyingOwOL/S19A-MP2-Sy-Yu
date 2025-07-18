@@ -83,6 +83,14 @@ public class ViewJournal extends PopUpFormat {
         this.setVisible(true);
     }
 
+    /**
+     * 
+     * This method adds an ActionListener to the Close button.
+     * 
+     * This allows external controllers to handle the action when the button is clicked.
+     * 
+     * @param listener
+     */
     public void addCloseButtonListener(ActionListener listener) {
         closeButton.addActionListener(listener);
 }

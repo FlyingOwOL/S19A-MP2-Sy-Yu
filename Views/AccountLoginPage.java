@@ -134,5 +134,27 @@ public class AccountLoginPage extends JFrame{
         return loginButton;
     }
 
+    /**
+     * This method adds an ActionListener to the Login button.
+     * 
+     * This allows external controllers to handle login events when the button is clicked.
+     * @param listener
+     */
+    public void addLoginListener(ActionListener listener) {
+        loginButton.addActionListener(listener);
+    }
+
+    
+    /**
+     * This method adds an ActionListener to the Create Account button.
+     * 
+     * This allows external controllers to handle create account events when the button is clicked.
+     *
+     * @param listener the ActionListener to attach to the create account button
+     */
+    public void addCreateAccountListener(ActionListener listener) {
+        createAccountButton.addActionListener(listener);
+    }
+
 
 }

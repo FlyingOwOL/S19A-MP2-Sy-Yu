@@ -66,10 +66,24 @@ public class DeleteCalendarFrame extends PopUpFormat {
         this.setVisible(true);
     }
 
+    /**
+     * This getter returns the delete button.
+     * 
+     * It allows external classes to attach an ActionListener to handle deletion.
+     * 
+     * @return the delete JButton component
+     */
     public JButton getDeleteButton() {
         return deleteButton;
     }
 
+     /**
+     * This getter returns the name of the calendar selected in the combo box.
+     * 
+     * It is used when identifying which calendar the user wants to delete.
+     * 
+     * @return the selected calendar name as a String
+     */
     public String getSelectedCalendar() {
         return (String) calendarComboBox.getSelectedItem();
     } 
