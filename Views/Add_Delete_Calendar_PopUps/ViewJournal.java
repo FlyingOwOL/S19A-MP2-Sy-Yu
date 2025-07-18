@@ -1,22 +1,15 @@
 package Views.Add_Delete_Calendar_PopUps;   // We use this package to organize our code
 
-import Utilities.FixedValues;   // We use this to access fixed values like fonts and colors
-import java.awt.Color;          // We use this to set the background color of panels
-import javax.swing.JButton;     // We use this to create buttons
-import javax.swing.JFrame;      // We use this to create the main frame of the pop-up
-import javax.swing.JLabel;      // We use this to create labels
-import javax.swing.JPanel;      // We use this to create panels for organizing components
-import javax.swing.JScrollPane; // We use this to create scrollable areas
-import javax.swing.JTextArea;   // We use this to create text areas for multi-line text input
+import Utilities.FixedValues;
+import Views.PopUpFormat;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
-/**
- * This class represents a pop-up frame for viewing the journal of the current month.
- * It displays the journal content and allows the user to close the pop-up.
- * 
- * It extends JFrame to create a window for the pop-up.
- */
-public class ViewJournal extends JFrame {
-    // Label for the journal title
+public class ViewJournal extends PopUpFormat {
     private JLabel journalLabel = new JLabel("This is the Month's Journal");
     
     // Use JTextArea instead of JLabel for journal content
@@ -44,9 +37,6 @@ public class ViewJournal extends JFrame {
      */
     public ViewJournal() {
         this.setTitle("This Month's Journal");
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setSize(400, 300);
-        this.setLayout(null);
 
         // Panel set bounds
         headerPanel.setBounds(0, 0, 400, 100);

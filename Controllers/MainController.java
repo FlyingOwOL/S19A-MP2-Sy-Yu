@@ -1,32 +1,39 @@
-package Controllers;        // We use this package to organize our code
+package Controllers;
 
-// Models import for Account and Calendar
+// Models import
 import Models.Account.AccountModel;
 import Models.Calendar.*;
+import Models.Entry.*;
+import Views.AccountPage;
+
+// Views import
+
+// Other imports
 import java.util.ArrayList;
 
-/**
- * This class serves as the main controller for the calendar system.
- * It manages accounts and public calendars, including Normal and Family calendars.
- * 
- * It provides methods to add accounts and retrieve public calendars.
- * 
- * This class maintains two main lists:
- * - Registered accounts (private per user)
- * - Public calendars (Normal and Family types)
- */
 public class MainController {
-    // Initialize lists to hold accounts and public calendars
     private ArrayList<AccountModel> accounts;
     private ArrayList<CalendarParentModel> publicCalendars; // includes Normal and Family calendars only
-    
-    /**
-     * This constructor initializes the MainController with
-     * empty lists for accounts and public calendars.
-     * 
-     */
+
+    //controllers
+    private EntriesPopUpsController entriesPopUpsController;
+    private CalendarDisplayController calendarDisplayController;
+    private AccountSelectionController accountSelectionController;
+    private CalendarDateController calendarDateController;
+
+    //yezzur
+    private AccountPage accountPage;
     public MainController() {
         this.accounts = new ArrayList<>();
         this.publicCalendars = new ArrayList<>();
+
+        //where da featuers are added 
+        this.accountPage = new AccountPage();
+
+        // add the bloody features mate
+        this.entriesPopUpsController = new EntriesPopUpsController(accountPage);
+        this.calendarDisplayController = new CalendarDisplayController(accountPage);
+        this.accountSelectionController = new AccountSelectionController(accountPage);
+        this.calendarDateController = new CalendarDateController(accountPage);
     }
 }

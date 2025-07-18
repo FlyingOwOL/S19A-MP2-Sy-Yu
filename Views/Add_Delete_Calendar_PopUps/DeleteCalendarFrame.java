@@ -1,22 +1,15 @@
 package Views.Add_Delete_Calendar_PopUps;   // We use this package to organize our code
 
-import Utilities.FixedValues;   // We use this to access fixed values like fonts and colors
-import java.awt.Color;          // We use this to set the background color of panels
-import javax.swing.JButton;     // We use this to create buttons
-import javax.swing.JComboBox;   // We use this to create dropdown lists
-import javax.swing.JFrame;      // We use this to create the main frame of the pop-up
-import javax.swing.JLabel;      // We use this to create labels
-import javax.swing.JPanel;      // We use this to create panels for organizing components
+import Utilities.FixedValues;
+import Views.PopUpFormat;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-/**
- * This class represents a pop-up frame for deleting a calendar.
- * It allows the user to select a calendar from a dropdown list and delete it.
- * 
- * It extends JFrame to create a window for the pop-up.
- */
-public class DeleteCalendarFrame extends JFrame {
-    // Panel for the header section and content section
-    private JPanel headerPanel = new JPanel(); 
+public class DeleteCalendarFrame extends PopUpFormat {
+    private JPanel headerPanel = new JPanel();
     private JPanel contentPanel = new JPanel();
 
     // Title label for the pop-up
@@ -39,10 +32,6 @@ public class DeleteCalendarFrame extends JFrame {
      */
     public DeleteCalendarFrame(){
         this.setTitle("Delete Calendar");
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setSize(400, 300);
-        this.setResizable(false);
-        this.setLayout(null);
 
         // Set bounds for each panel in the frame
         headerPanel.setBounds(0, 0, 400, 100);

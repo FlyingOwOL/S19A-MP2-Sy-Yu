@@ -1,23 +1,16 @@
 package Views;                  // We use this package to organize our code
 
-import Utilities.FixedValues;   // We use this to access fixed values like fonts and colors
-import java.awt.Color;          // We use this to set the background color of panels
-import java.awt.FlowLayout;     // We use this to arrange components in a flow layout
-import javax.swing.JButton;     // We use this to create buttons    
-import javax.swing.JComboBox;   // We use this to create dropdown lists
-import javax.swing.JFrame;      // We use this to create the main frame of the pop-up
-import javax.swing.JLabel;      // We use this to create labels for text display
-import javax.swing.JPanel;      // We use this to create panels for organizing components
+import Utilities.FixedValues;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-/**
- * This class represents the main account page for the calendar application.
- * It displays the calendar view and allows users to navigate through dates, 
- * select entries, and manage their accounts.
- * 
- * It extends JFrame to create a window for the account page.
- */
-public class AccountPage extends JFrame{
-    // Panels for the header, calendar, footer, and side sections
+public class AccountPage extends JFrame {
     private JPanel headerPanel = new JPanel();
     private JPanel calendarPanel = new JPanel();
     private JPanel footerPanel = new JPanel();
@@ -74,7 +67,7 @@ public class AccountPage extends JFrame{
         headerPanel.setLayout(null);
         dateLabel.setFont(FixedValues.TITLE_FONT);
         dateLabel.setHorizontalTextPosition(JLabel.CENTER);
-        dateLabel.setBounds(350, 25, 200, 50);
+        dateLabel.setBounds(350, 25, 300, 50);
         headerPanel.add(dateLabel);
 
         // Navigation buttons
@@ -95,7 +88,7 @@ public class AccountPage extends JFrame{
 
         // Components for calendarPanel
         calendarPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        calendarPanel.add(weeklyCalendarView);
+        calendarPanel.add(monthlyCalendarView);
 
         // Components for footerPanel
         footerPanel.setLayout(null);
@@ -120,5 +113,57 @@ public class AccountPage extends JFrame{
         this.add(calendarPanel);
         this.add(footerPanel);
         this.setVisible(true);
+    }
+
+    public String getSelectedCalendarDisplay(){
+        return (String) calendarDisplayBox.getSelectedItem();
+    }
+
+    public String getSelectedEntry(){
+        return (String) entriesBox.getSelectedItem();
+    }
+
+    public String getSelectedAccount(){
+        return (String) accountsBox.getSelectedItem();
+    }
+
+    public void changeCalendarDisplay(String displayMode) {
+        if (displayMode.equals("Month")) {
+            calendarPanel.remove(weeklyCalendarView);
+            calendarPanel.add(monthlyCalendarView);
+        } else {
+            calendarPanel.remove(monthlyCalendarView);
+            calendarPanel.add(weeklyCalendarView);
+        }
+        calendarPanel.revalidate();
+        calendarPanel.repaint();
+    }
+
+    public void updateDateLabel(String dateText) {
+        dateLabel.setText(dateText);
+    }
+
+    public void changeCalendarDisplay(ActionListener e){
+        calendarDisplayBox.addActionListener(e);
+    }
+
+    public void selectPopUps(ActionListener e){
+        entriesBox.addActionListener(e);
+    }
+
+    public void changeAccountSelection(ActionListener e) {
+        accountsBox.addActionListener(e);
+    }
+
+    public void setPreviousButtonListener(ActionListener listener) {
+        previousButton.addActionListener(listener);
+    }
+
+    public void setNextButtonListener(ActionListener listener) {
+        nextButton.addActionListener(listener);
+    }
+
+    public void setJumpDateButtonListener(ActionListener listener) {
+        jumpDateButton.addActionListener(listener);
     }
 }

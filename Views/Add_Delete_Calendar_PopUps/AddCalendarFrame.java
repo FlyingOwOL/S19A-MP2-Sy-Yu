@@ -1,26 +1,19 @@
 package Views.Add_Delete_Calendar_PopUps;   // We use this package to organize our code
 
-import Utilities.FixedValues;               // We use this to access fixed values like fonts and colors
-import java.awt.Color;                      // We use this to set the background color of panels
-import javax.swing.ButtonGroup;             // We use this to group radio buttons together
-import javax.swing.JButton;                 // We use this to create buttons
-import javax.swing.JComboBox;               // We use this to create dropdown lists
-import javax.swing.JFrame;                  // We use this to create the main frame of the pop-up
-import javax.swing.JLabel;                  // We use this to create labels 
-import javax.swing.JPanel;                  // We use this to create panels for organizing components
-import javax.swing.JRadioButton;            // We use this to create radio buttons for selection
-import javax.swing.JTextField;              // We use this to create text fields for user input
+import Utilities.FixedValues;
+import Views.PopUpFormat;
+import java.awt.Color;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
-/**
- * This class represents a pop-up frame for adding a calendar.
- * It allows the user to create a new calendar or import an existing one.
- * The user can choose the type of calendar and enter its name.
- * 
- * It extends JFrame to create a window for the pop-up.
- */
-public class AddCalendarFrame extends JFrame {
-    private JPanel headerPanel = new JPanel();  //  Panel for the header section
-    private JPanel contentPanel = new JPanel(); // Panel for the content section where user inputs are placed
+public class AddCalendarFrame extends PopUpFormat {
+    private JPanel headerPanel = new JPanel();
+    private JPanel contentPanel = new JPanel();
 
     // Title label for the pop-up
     private JLabel titleLabel = new JLabel("Add Calendar"); 
@@ -57,10 +50,6 @@ public class AddCalendarFrame extends JFrame {
      */
     public AddCalendarFrame() {
         this.setTitle("Add Calendar");
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setSize(400, 430);
-        this.setResizable(false);
-        this.setLayout(null);
 
         // Panels
         headerPanel.setBounds(0, 0, 400, 100);
