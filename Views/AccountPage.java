@@ -10,6 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * This class represents the main account page of the calendar application.
+ * 
+ * It displays the monthly or weekly calendar view, allows navigation between dates,
+ * and provides options to add entries, change calendar display modes, 
+ * manage calendars, and sign out.
+ */
 public class AccountPage extends JFrame {
     private JPanel headerPanel = new JPanel();
     private JPanel calendarPanel = new JPanel();
@@ -115,18 +122,38 @@ public class AccountPage extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * This getter gets the selected calendar display mode from the combo box.
+     * 
+     * @return "Month" or "Week" as a String
+     */
     public String getSelectedCalendarDisplay(){
         return (String) calendarDisplayBox.getSelectedItem();
     }
 
+    /**
+     * This getter gets the selected entry type from the entries combo box.
+     * 
+     * @return the selected entry type as a String
+     */
     public String getSelectedEntry(){
         return (String) entriesBox.getSelectedItem();
     }
 
+    /**
+     * This getter gets the selected account option from the accounts combo box.
+     * 
+     * @return the selected account option as a String
+     */
     public String getSelectedAccount(){
         return (String) accountsBox.getSelectedItem();
     }
 
+    /**
+     * This method changes the calendar display between monthly and weekly view.
+     * 
+     * @param displayMode "Month" or "Week"
+     */
     public void changeCalendarDisplay(String displayMode) {
         if (displayMode.equals("Month")) {
             calendarPanel.remove(weeklyCalendarView);
@@ -139,30 +166,67 @@ public class AccountPage extends JFrame {
         calendarPanel.repaint();
     }
 
+    /**
+     * This method updates the date label in the header to show the current range of dates.
+     * 
+     * @param dateText the new date text to display
+     */
     public void updateDateLabel(String dateText) {
         dateLabel.setText(dateText);
     }
 
+    /**
+     * This method adds an ActionListener to the calendar display combo box.
+     * 
+     * @param e the ActionListener to handle selection events
+     */
     public void changeCalendarDisplay(ActionListener e){
         calendarDisplayBox.addActionListener(e);
     }
 
+    /**
+     * This method adds an ActionListener to the entries combo box for pop-up selections.
+     * 
+     * @param e the ActionListener to handle selection events
+     */
     public void selectPopUps(ActionListener e){
         entriesBox.addActionListener(e);
     }
 
+    /**
+     * This method adds an ActionListener to the accounts combo box.
+     * 
+     * @param e the ActionListener to handle selection events
+     */
     public void changeAccountSelection(ActionListener e) {
         accountsBox.addActionListener(e);
     }
 
+    /**
+     * This method adds an ActionListener to the previous button 
+     * for navigating to the previous date range.
+     * 
+     * @param listener the ActionListener to handle button clicks
+     */
     public void setPreviousButtonListener(ActionListener listener) {
         previousButton.addActionListener(listener);
     }
 
+    /**
+     * This method adds an ActionListener to the next button
+     * for navigating to the next date range.
+     * 
+     * @param listener the ActionListener to handle button clicks
+     */    
     public void setNextButtonListener(ActionListener listener) {
         nextButton.addActionListener(listener);
     }
 
+    /**
+     * This method adds an ActionListener to the jump date button for jumping to a specific date.
+     * 
+     * @param listener the ActionListener to handle button clicks
+     */
     public void setJumpDateButtonListener(ActionListener listener) {
         jumpDateButton.addActionListener(listener);
     }

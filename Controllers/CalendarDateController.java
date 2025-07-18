@@ -1,21 +1,33 @@
 package Controllers;
 
 import Views.AccountPage;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Locale;
-
 import javax.swing.JOptionPane;
 
+/**
+ * This class controls the date navigation for the calendar.
+ * 
+ * It handles switching between months and weeks, and jumping to a specific date.
+ * 
+ * It updates the date label on the AccountPage view.
+ */
 public class CalendarDateController {
-    private AccountPage accountPage;
-    private LocalDateTime currentDate;
-    private DateTimeFormatter displayFormatter;
+    private AccountPage accountPage;            // The main calendar view
+    private LocalDateTime currentDate;          // The currently displayed date
+    private DateTimeFormatter displayFormatter; // Formatter for displaying dates
     
+    /**
+     * This constructor initializes the CalendarDateController.
+     * 
+     * It sets up listeners for previous, next, and jump date buttons.
+     * 
+     * @param accountPage the calendar GUI to control
+     */
     public CalendarDateController(AccountPage accountPage) {
         this.accountPage = accountPage;
         this.currentDate = LocalDateTime.now();
@@ -31,7 +43,8 @@ public class CalendarDateController {
     }
     
     /**
-     * Updates the date label on the account page with the current date
+     * This method updates the date label on the account page with the current date.
+     * It handles both month view and week view display formats.
      */
     private void updateDateDisplay() {
         String displayText;
@@ -66,7 +79,7 @@ public class CalendarDateController {
 
     
     /**
-     * Navigates to the previous month
+     * This method moves the calendar to the previous month.
      */
     private void navigateToPreviousMonth() {
         try {
@@ -79,7 +92,7 @@ public class CalendarDateController {
     }
     
     /**
-     * Navigates to the next month
+     * This method moves the calendar to the next month.
      */
     private void navigateToNextMonth() {
         try {
@@ -92,7 +105,7 @@ public class CalendarDateController {
     }
     
     /**
-     * Navigates to the previous week (for weekly view)
+     * This method moves the calendar to the previous week.
      */
     private void navigateToPreviousWeek() {
         try {
@@ -105,7 +118,7 @@ public class CalendarDateController {
     }
     
     /**
-     * Navigates to the next week (for weekly view)
+     * This method moves the calendar to the next week.
      */
     private void navigateToNextWeek() {
         try {
@@ -118,7 +131,7 @@ public class CalendarDateController {
     }
     
     /**
-     * Handles jumping to a specific date
+     * Thsi method handles jumping to a specific date.
      */
     private void handleJumpToDate() {
         try {
@@ -192,31 +205,67 @@ public class CalendarDateController {
     }
     
     // Getter methods for accessing current date information
+
+    /**
+     * This getter gets the current date.
+     * 
+     * @return current LocalDateTime
+     */
     public LocalDateTime getCurrentDate() {
         return currentDate;
     }
     
+    /**
+     * This gets the current year.
+     * 
+     * @return year as an int
+     */
     public int getCurrentYear() {
         return currentDate.getYear();
     }
     
+    /**
+     * This getter gets the current month number.
+     * 
+     * @return month as an int
+     */
     public int getCurrentMonth() {
         return currentDate.getMonthValue();
     }
     
+    /**
+     * This getter gets the current day of the month.
+     * 
+     * @return day as an int
+     */
     public int getCurrentDay() {
         return currentDate.getDayOfMonth();
     }
     
+    /**
+     * This getter gets the current month name in full text.
+     * 
+     * @return month name as a String
+     */
     public String getCurrentMonthName() {
         return currentDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
     }
     
+    /**
+     * This getter gets the formatted current date as "MMM - yyyy".
+     * 
+     * @return formatted date string
+     */
     public String getFormattedCurrentDate() {
         return currentDate.format(displayFormatter);
     }
     
     // Action listener classes
+
+    /**
+     * This class is a listener for the previous button.
+     * It also navigates to the previous month or week depending on the view.
+     */
     class PreviousDateListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             // Check current display mode to determine navigation type
@@ -229,6 +278,10 @@ public class CalendarDateController {
         }
     }
     
+    /**
+     * This class is a listener for the next button.
+     * It navigates to the next month or week depending on the view.
+     */
     class NextDateListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             // Check current display mode to determine navigation type
@@ -241,6 +294,10 @@ public class CalendarDateController {
         }
     }
     
+    /**
+     * It is a listener for the jump date button.
+     * It also opens a dialog to input a specific month and year.
+     */
     class JumpDateListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             handleJumpToDate();

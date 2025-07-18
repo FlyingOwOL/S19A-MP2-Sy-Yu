@@ -1,11 +1,11 @@
 package Views;                  // We use this package to organize our code
 
-import Utilities.FixedValues;   // We use this to set fixed values for fonts and other UI elements
-import javax.swing.JButton;     // We use this to create buttons
-import javax.swing.JFrame;      // We use this to create the main frame of the pop-up
-import javax.swing.JLabel;      // We use this to create labels for text display
-import javax.swing.JPanel;      // We use this to create panels for organizing components
-import javax.swing.JTextField;  // We use this to create text fields for user input
+import Utilities.FixedValues;  
+import javax.swing.JButton;
+import javax.swing.JFrame;    
+import javax.swing.JLabel;
+import javax.swing.JPanel;     
+import javax.swing.JTextField;  
 
 /**
  * This class represents a login page for the calendar application.
@@ -97,4 +97,42 @@ public class AccountLoginPage extends JFrame{
         this.add(buttonsPanel);
         this.setVisible(true);
     }
+
+    /**
+     * This getter gets the text entered in the username field.
+     * 
+     * @return the username as a String
+     */
+    public String getUsername() {
+        return usernameField.getText();
+    }
+
+    /**
+     * This getter gets the text entered in the password field.
+     * 
+     * @return the password as a String
+     */
+    public String getPassword() {
+        return passwordField.getText();
+    }
+
+    /**
+     * This getter returns the Create Account button.
+     * 
+     * @return the create account JButton
+     */
+    public JButton getCreateAccountButton() {
+        return createAccountButton;
+    }
+
+    /**
+     * This getter returns the Login button.
+     * 
+     * @return the login JButton
+     */
+    public JButton getLoginButton() {
+        return loginButton;
+    }
+
+
 }

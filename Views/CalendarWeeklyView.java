@@ -1,14 +1,14 @@
 package Views;                      // We use this package to organize our code
 
-import java.awt.BorderLayout;       // We use this to set the layout of the calendar
-import java.awt.Color;              // We use this to set the background color of the rectangles
-import java.awt.Dimension;          // We use this to set the preferred size of the rectangles
-import java.awt.GridLayout;         // We use this to create a grid layout for the weekly view    
-import javax.swing.BorderFactory;   // We use this to create borders for the rectangles
-import javax.swing.JLabel;          // We use this to create labels for the day names and time slots
-import javax.swing.JPanel;          // We use this to create the main panel for the weekly calendar view
-import javax.swing.JScrollPane;     // We use this to create a scrollable view of the calendar    
-import javax.swing.SwingConstants;  // We use this to set the alignment of text in labels
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;       
+import javax.swing.SwingConstants;  
 
 /**
  * This class represents a weekly view of the calendar.

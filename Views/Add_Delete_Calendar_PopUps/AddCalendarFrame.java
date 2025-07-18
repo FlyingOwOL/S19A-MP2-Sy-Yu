@@ -11,9 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+/**
+ * This class represents the pop-up window for adding or importing calendars.
+ */
 public class AddCalendarFrame extends PopUpFormat {
-    private JPanel headerPanel = new JPanel();
-    private JPanel contentPanel = new JPanel();
+    private JPanel headerPanel = new JPanel();  // Panel for title/header
+    private JPanel contentPanel = new JPanel(); // Panel for inputs and controls
 
     // Title label for the pop-up
     private JLabel titleLabel = new JLabel("Add Calendar"); 
@@ -24,22 +27,16 @@ public class AddCalendarFrame extends PopUpFormat {
     // Button to add the calendar
     private JButton addButton = new JButton("Add"); 
 
-    // Radio buttons for selecting the type of calendar to create or import
-    private JRadioButton creationType = new JRadioButton("Create New Calendar"); 
-
-    // Radio button for importing an existing calendar
+    // Radio buttons for choosing creation vs. import
+    private JRadioButton creationType = new JRadioButton("Create New Calendar");
     private JRadioButton importType = new JRadioButton("Import Calendar");
 
-    // Combo boxes for selecting the type of calendar and the imported calendar
+    // Options for calendar types
     private String[] calendarTypes = new String[]{"Normal", "Personal", "Family"};
-
-    // Example list of imported calendars (this would typically be populated dynamically)
-    private String[] importedCalendars = new String[]{"Suck", "My", "Calendar", "off", "Bro"};
-
-    // Combo boxes for selecting the type of calendar and the imported calendar
     private JComboBox<String> calendarTypeBox = new JComboBox<>(calendarTypes);
 
-    // Combo box for selecting an imported calendar
+    // Example placeholder for imported calendars
+    private String[] importedCalendars = new String[]{"Suck", "My", "Calendar", "off", "Bro"};
     private JComboBox<String> importedCalendarBox = new JComboBox<>(importedCalendars);
 
     /**

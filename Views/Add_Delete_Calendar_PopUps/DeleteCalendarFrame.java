@@ -8,6 +8,13 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * This class creates the pop-up window for deleting calendars.
+ * It allows the user to select a calendar from a dropdown list
+ * and delete it by clicking the delete button.
+ * 
+ * It extends PopUpFormat to have the format of the pop-up windows.
+ */
 public class DeleteCalendarFrame extends PopUpFormat {
     private JPanel headerPanel = new JPanel();
     private JPanel contentPanel = new JPanel();
@@ -58,4 +65,12 @@ public class DeleteCalendarFrame extends PopUpFormat {
         this.add(contentPanel);
         this.setVisible(true);
     }
+
+    public JButton getDeleteButton() {
+        return deleteButton;
+    }
+
+    public String getSelectedCalendar() {
+        return (String) calendarComboBox.getSelectedItem();
+    } 
 }

@@ -9,6 +9,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * This class represents the pop-up window for viewing journal entries.
+ * It displays the journal content in a scrollable text area that cannot be edited.
+ * 
+ * Components:
+ * - Header with the title
+ * - Content area showing the journal text
+ * - Button to close the window
+ */
 public class ViewJournal extends PopUpFormat {
     private JLabel journalLabel = new JLabel("This is the Month's Journal");
     
@@ -73,4 +82,9 @@ public class ViewJournal extends PopUpFormat {
         this.add(contentPanel);
         this.setVisible(true);
     }
+
+    public void addCloseButtonListener(ActionListener listener) {
+        closeButton.addActionListener(listener);
+}
+
 }

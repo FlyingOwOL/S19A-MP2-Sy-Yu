@@ -50,9 +50,9 @@ public class Task extends EntryModel{
     }
 
     /**
-     * This getter gets the account that created the task.
+     * This getter gets the account that finsihed the task.
      * 
-     * @return the account that created the task
+     * @return the account that finished the task
      */
     public String getFinishedBy(){
         return this.finishedBy;
