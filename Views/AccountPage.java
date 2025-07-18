@@ -58,7 +58,7 @@ public class AccountPage extends JFrame {
         headerPanel.setLayout(null);
         dateLabel.setFont(FixedValues.TITLE_FONT);
         dateLabel.setHorizontalTextPosition(JLabel.CENTER);
-        dateLabel.setBounds(350, 25, 200, 50);
+        dateLabel.setBounds(350, 25, 300, 50);
         headerPanel.add(dateLabel);
 
         previousButton.setBounds(20, 35, 50, 30);
@@ -127,6 +127,10 @@ public class AccountPage extends JFrame {
         calendarPanel.repaint();
     }
 
+    public void updateDateLabel(String dateText) {
+        dateLabel.setText(dateText);
+    }
+
     public void changeCalendarDisplay(ActionListener e){
         calendarDisplayBox.addActionListener(e);
     }
@@ -137,5 +141,17 @@ public class AccountPage extends JFrame {
 
     public void changeAccountSelection(ActionListener e) {
         accountsBox.addActionListener(e);
+    }
+
+    public void setPreviousButtonListener(ActionListener listener) {
+        previousButton.addActionListener(listener);
+    }
+
+    public void setNextButtonListener(ActionListener listener) {
+        nextButton.addActionListener(listener);
+    }
+
+    public void setJumpDateButtonListener(ActionListener listener) {
+        jumpDateButton.addActionListener(listener);
     }
 }

@@ -2,9 +2,7 @@ package Controllers;
 
 import Views.AccountLoginPage;
 import Views.AccountPage;
-import Views.Add_Delete_Calendar_PopUps.AddCalendarFrame;
-import Views.Add_Delete_Calendar_PopUps.DeleteCalendarFrame;
-import Views.Add_Delete_Calendar_PopUps.ViewJournal;
+import Views.Add_Delete_Calendar_PopUps.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

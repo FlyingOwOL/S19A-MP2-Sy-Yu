@@ -19,6 +19,7 @@ public class MainController {
     private EntriesPopUpsController entriesPopUpsController;
     private CalendarDisplayController calendarDisplayController;
     private AccountSelectionController accountSelectionController;
+    private CalendarDateController calendarDateController;
 
     //yezzur
     private AccountPage accountPage;
@@ -33,5 +34,6 @@ public class MainController {
         this.entriesPopUpsController = new EntriesPopUpsController(accountPage);
         this.calendarDisplayController = new CalendarDisplayController(accountPage);
         this.accountSelectionController = new AccountSelectionController(accountPage);
+        this.calendarDateController = new CalendarDateController(accountPage);
     }
 }
