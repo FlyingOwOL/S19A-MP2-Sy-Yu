@@ -4,7 +4,6 @@ package Controllers;
 import Models.Account.AccountModel;
 import Models.Calendar.*;
 import Models.Entry.*;
-import Views.AccountPage;
 
 // Views import
 
@@ -12,28 +11,28 @@ import Views.AccountPage;
 import java.util.ArrayList;
 
 public class MainController {
-    private ArrayList<AccountModel> accounts;
-    private ArrayList<CalendarParentModel> publicCalendars; // includes Normal and Family calendars only
+    public static ArrayList<AccountModel> accounts = new ArrayList<>();
+    public static ArrayList<CalendarParentModel> publicCalendars = new ArrayList<>(); // includes Normal and Family calendars only
+    
+    private LoginController loginController;
 
-    //controllers
-    private EntriesPopUpsController entriesPopUpsController;
-    private CalendarDisplayController calendarDisplayController;
-    private AccountSelectionController accountSelectionController;
-    private CalendarDateController calendarDateController;
-
-    //yezzur
-    private AccountPage accountPage;
     public MainController() {
-        this.accounts = new ArrayList<>();
-        this.publicCalendars = new ArrayList<>();
-
         //where da featuers are added 
-        this.accountPage = new AccountPage();
+        MainController.accounts.add(new AccountModel("jason", "1234"));
+        this.loginController = new LoginController();
+    }
+    
+    public void addAccount(AccountModel account) {
+        accounts.add(account);
+    }
 
-        // add the bloody features mate
-        this.entriesPopUpsController = new EntriesPopUpsController(accountPage);
-        this.calendarDisplayController = new CalendarDisplayController(accountPage);
-        this.accountSelectionController = new AccountSelectionController(accountPage);
-        this.calendarDateController = new CalendarDateController(accountPage);
+    public static boolean accountExists(String name) {
+        boolean isTaken = false;
+        for (AccountModel account : accounts) {
+            if (account.getName().equals(name)) {
+                isTaken = true;
+            }
+        }
+        return isTaken;
     }
 }

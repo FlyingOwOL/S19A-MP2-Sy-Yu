@@ -44,7 +44,7 @@ public class CalendarDateController {
 
             // If months are the same
             if (startOfWeek.getMonth() == endOfWeek.getMonth()) {
-                displayText = String.format("%s%d",
+                displayText = String.format("%s %d",
                     startOfWeek.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
                     endOfWeek.getYear()
                 );
