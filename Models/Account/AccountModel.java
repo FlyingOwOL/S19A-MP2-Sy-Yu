@@ -1,6 +1,7 @@
 package Models.Account;
 
 import Models.Calendar.*;
+import Views.AccountPage;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,6 @@ public class AccountModel {
         this.password = password;
         this.calendars = new ArrayList<CalendarParentModel>();
         this.activeStatus = true;
-
         this.calendars.add(new Personal(this.name, this)); //personal calendar with same name and owner
     }
 

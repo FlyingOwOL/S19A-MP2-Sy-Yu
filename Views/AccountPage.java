@@ -2,14 +2,14 @@ package Views;
 
 import Utilities.FixedValues;
 
-import javax.swing.JFrame;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.FlowLayout;
+import javax.swing.*;
+
+import Models.Account.AccountModel;
+
+import java.awt.*;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class AccountPage extends JFrame {
     private JPanel headerPanel = new JPanel();
@@ -21,12 +21,12 @@ public class AccountPage extends JFrame {
     private JLabel dateLabel = new JLabel("Jun - Jul 2025");
     private JLabel footerLabel = new JLabel("Footer Information");
 
-    private JButton previousButton = new JButton ("<-");
-    private JButton nextButton = new JButton ("->");
+    private JButton previousButton = new JButton("<-");
+    private JButton nextButton = new JButton("->");
     private JButton jumpDateButton = new JButton("Jump to Date");
 
     private String[] entrySelection = {"Event", "Task", "Meeting", "Journal"};
-    private String[] accountSelection = {"Account 1", "Add Calendar", "Delete Calendar", "View Journal","Sign out"};
+    private String[] accountSelection = {"Switch", "Add Calendar", "Delete Calendar", "View Journal", "Sign out"};
     private String[] calendarDisplayModes = {"Month", "Week"};
     private JComboBox<String> entriesBox = new JComboBox<>(entrySelection);
     private JComboBox<String> accountsBox = new JComboBox<>(accountSelection);
@@ -34,27 +34,31 @@ public class AccountPage extends JFrame {
 
     private CalendarMonthlyView monthlyCalendarView = new CalendarMonthlyView();
     private CalendarWeeklyView weeklyCalendarView = new CalendarWeeklyView();
-    
-    public AccountPage(){
-        this.setTitle("Calendar Page");
+
+    private AccountModel currentAccount;
+
+    public AccountPage(AccountModel account) {
+        this.currentAccount = account;
+
+        this.setTitle("Welcome back " + currentAccount.getName() + "!");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(1010, 637);
         this.setResizable(false);
-        this.setLayout(null);               
+        this.setLayout(null);
 
         // Set bounds for each panel in the frame
         headerPanel.setBounds(50, 0, 900, 100);
         headerPanel.setBackground(Color.BLUE);
         calendarPanel.setBounds(50, 100, 900, 400);
         calendarPanel.setBackground(Color.LIGHT_GRAY);
-        footerPanel.setBounds(50, 500, 900, 637);
+        footerPanel.setBounds(50, 500, 900, 100);
         footerPanel.setBackground(Color.GREEN);
         leftSidePanel.setBounds(0, 0, 50, 637);
-        leftSidePanel.setBackground(Color.magenta); 
+        leftSidePanel.setBackground(Color.MAGENTA);
         rightSidePanel.setBounds(950, 0, 50, 637);
-        rightSidePanel.setBackground(Color.magenta);       
+        rightSidePanel.setBackground(Color.MAGENTA);
 
-        //components for headerPanel
+        // Components for headerPanel
         headerPanel.setLayout(null);
         dateLabel.setFont(FixedValues.TITLE_FONT);
         dateLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -65,22 +69,21 @@ public class AccountPage extends JFrame {
         previousButton.setFont(FixedValues.BUTTON_FONT);
         previousButton.setFocusable(false);
         headerPanel.add(previousButton);
-        nextButton.setBounds(830, 35, 50, 30); 
+        nextButton.setBounds(830, 35, 50, 30);
         nextButton.setFont(FixedValues.BUTTON_FONT);
         nextButton.setFocusable(false);
         headerPanel.add(nextButton);
-
 
         accountsBox.setBounds(810, 70, 80, 20);
         headerPanel.add(accountsBox);
         calendarDisplayBox.setBounds(720, 70, 80, 20);
         headerPanel.add(calendarDisplayBox);
 
-        //components for calendarPanel
+        // Components for calendarPanel
         calendarPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        calendarPanel.add(monthlyCalendarView);
+        calendarPanel.add(monthlyCalendarView); // Start with monthly view
 
-        //components for footerPanel
+        // Components for footerPanel
         footerPanel.setLayout(null);
         footerLabel.setFont(FixedValues.TITLE_FONT);
         footerLabel.setBounds(20, 25, 200, 50);
@@ -94,7 +97,7 @@ public class AccountPage extends JFrame {
         jumpDateButton.setFocusable(false);
         footerPanel.add(jumpDateButton);
 
-        //add panels to the frame
+        // Add panels to the frame
         this.add(leftSidePanel);
         this.add(rightSidePanel);
         this.add(headerPanel);
@@ -103,24 +106,23 @@ public class AccountPage extends JFrame {
         this.setVisible(true);
     }
 
-    public String getSelectedCalendarDisplay(){
+    public String getSelectedCalendarDisplay() {
         return (String) calendarDisplayBox.getSelectedItem();
     }
 
-    public String getSelectedEntry(){
+    public String getSelectedEntry() {
         return (String) entriesBox.getSelectedItem();
     }
 
-    public String getSelectedAccount(){
+    public String getSelectedAccount() {
         return (String) accountsBox.getSelectedItem();
     }
 
     public void changeCalendarDisplay(String displayMode) {
+        calendarPanel.removeAll(); // Clear existing components
         if (displayMode.equals("Month")) {
-            calendarPanel.remove(weeklyCalendarView);
             calendarPanel.add(monthlyCalendarView);
         } else {
-            calendarPanel.remove(monthlyCalendarView);
             calendarPanel.add(weeklyCalendarView);
         }
         calendarPanel.revalidate();
@@ -131,11 +133,11 @@ public class AccountPage extends JFrame {
         dateLabel.setText(dateText);
     }
 
-    public void changeCalendarDisplay(ActionListener e){
+    public void changeCalendarDisplay(ActionListener e) {
         calendarDisplayBox.addActionListener(e);
     }
 
-    public void selectPopUps(ActionListener e){
+    public void selectPopUps(ActionListener e) {
         entriesBox.addActionListener(e);
     }
 
