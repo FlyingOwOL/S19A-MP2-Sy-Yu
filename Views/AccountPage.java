@@ -1,9 +1,11 @@
 package Views;
 
 import Utilities.FixedValues;
+import Views.Add_Delete_Calendar_PopUps.*;
 
 import javax.swing.*;
 
+import Controllers.Listeners_Add_Delete_Calendar_PopUps.AddCalendar;
 import Models.Account.AccountModel;
 
 import java.awt.*;
@@ -36,6 +38,11 @@ public class AccountPage extends JFrame {
     private CalendarWeeklyView weeklyCalendarView = new CalendarWeeklyView();
 
     private AccountModel currentAccount;
+
+    private AddCalendarFrame addCalendarFrame;
+    private DeleteCalendarFrame deleteCalendarFrame;
+    private ViewJournal viewJournal;
+    private SwitchCalendarFrame switchCalendarFrame;
 
     public AccountPage(AccountModel account) {
         this.currentAccount = account;
@@ -106,18 +113,30 @@ public class AccountPage extends JFrame {
         this.setVisible(true);
     }
 
+    // getters
     public String getSelectedCalendarDisplay() {
         return (String) calendarDisplayBox.getSelectedItem();
     }
-
     public String getSelectedEntry() {
         return (String) entriesBox.getSelectedItem();
     }
-
     public String getSelectedAccount() {
         return (String) accountsBox.getSelectedItem();
     }
+    public AddCalendarFrame getAddCalendarFrame() {
+        return addCalendarFrame;
+    }
+    public DeleteCalendarFrame getDeleteCalendarFrame() {
+        return deleteCalendarFrame;
+    }
+    public ViewJournal getViewJournal() {
+        return viewJournal;
+    }
+    public SwitchCalendarFrame getSwitchCalendarFrame() {
+        return switchCalendarFrame;
+    }
 
+    //setters
     public void changeCalendarDisplay(String displayMode) {
         calendarPanel.removeAll(); // Clear existing components
         if (displayMode.equals("Month")) {
@@ -132,27 +151,21 @@ public class AccountPage extends JFrame {
     public void updateDateLabel(String dateText) {
         dateLabel.setText(dateText);
     }
-
     public void changeCalendarDisplay(ActionListener e) {
         calendarDisplayBox.addActionListener(e);
     }
-
     public void selectPopUps(ActionListener e) {
         entriesBox.addActionListener(e);
     }
-
     public void changeAccountSelection(ActionListener e) {
         accountsBox.addActionListener(e);
     }
-
     public void setPreviousButtonListener(ActionListener listener) {
         previousButton.addActionListener(listener);
     }
-
     public void setNextButtonListener(ActionListener listener) {
         nextButton.addActionListener(listener);
     }
-
     public void setJumpDateButtonListener(ActionListener listener) {
         jumpDateButton.addActionListener(listener);
     }
