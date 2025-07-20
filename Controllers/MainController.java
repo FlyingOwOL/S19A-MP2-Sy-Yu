@@ -3,7 +3,7 @@ package Controllers;
 // Models import
 import Models.Account.AccountModel;
 import Models.Calendar.*;
-import Models.Entry.*;
+import Views.AccountPage;
 
 // Views import
 
@@ -13,17 +13,9 @@ import java.util.ArrayList;
 public class MainController {
     public static ArrayList<AccountModel> accounts = new ArrayList<>();
     public static ArrayList<CalendarParentModel> publicCalendars = new ArrayList<>(); // includes Normal and Family calendars only
-    
-    private LoginController loginController;
 
     public MainController() {
-        //where da featuers are added 
-        MainController.accounts.add(new AccountModel("jason", "1234"));
-        this.loginController = new LoginController();
-    }
-    
-    public void addAccount(AccountModel account) {
-        accounts.add(account);
+        new LoginController();
     }
 
     public static boolean accountExists(String name) {
@@ -34,5 +26,23 @@ public class MainController {
             }
         }
         return isTaken;
+    }
+
+    public static AccountModel getAccountByName(String name) {
+        AccountModel foundAccount = null;
+        for (AccountModel account : accounts) {
+            if (account.getName().equals(name)) {
+                foundAccount = account;
+            }
+        }
+        return foundAccount; // Return null if no account found
+    }
+
+    public static void setupFeatureControllers(AccountPage accountPage) {
+            new EntriesPopUpsController(accountPage);
+            new CalendarDisplayController(accountPage);
+            new CalendarDateController(accountPage);
+            new AccountSelectionController(accountPage);
+            // Other feature controllers
     }
 }

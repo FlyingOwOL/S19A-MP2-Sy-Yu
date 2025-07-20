@@ -5,11 +5,15 @@ import Views.AccountPage;
 
 import java.util.ArrayList;
 
+import Controllers.*;
+
 public class AccountModel {
     private String name;
     private String password;
     private ArrayList<CalendarParentModel> calendars;
     private boolean activeStatus;
+
+    private AccountPage accountPage;
 
     public AccountModel(String name, String password){
         this.name = name;
@@ -21,16 +25,22 @@ public class AccountModel {
 
     //getters
     public String getName() {
-        return name;
+        return this.name;
     }
     public boolean getActiveStatus() {
-        return activeStatus;
+        return this.activeStatus;
     }
     public ArrayList<CalendarParentModel> getCalendars() {
-        return calendars;
+        return this.calendars;
+    }
+    public AccountPage getAccountPage() {
+        return this.accountPage;
     }
 
-
+    //setters
+    public void setAccountPage(AccountPage accountPage) {
+        this.accountPage = accountPage;
+    }
 
     /*
      * Checks if the given password matches the account's password

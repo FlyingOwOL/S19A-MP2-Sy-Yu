@@ -1,6 +1,5 @@
 package Controllers;
 
-import Views.AccountLoginPage;
 import Views.AccountPage;
 import Views.Add_Delete_Calendar_PopUps.*;
 
@@ -8,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+
+import Controllers.Listeners_Add_Delete_Calendar_PopUps.*;
 
 public class AccountSelectionController {
     private AccountPage accountPage;
@@ -26,6 +27,7 @@ public class AccountSelectionController {
                     //"Add Calendar", "Delete Calendar", "View Journal","Sign out"
                     case "Add Calendar":
                         popUp = new AddCalendarFrame();
+                        addNewCalendar ((AddCalendarFrame) popUp);
                         break;
                     case "Delete Calendar":
                         popUp = new DeleteCalendarFrame();
@@ -35,7 +37,7 @@ public class AccountSelectionController {
                         break;
                     case "Sign out":
                         accountPage.dispose(); // Close the account page
-                        new AccountLoginPage();
+                        new LoginController();
                         break;
                 }
                 if (popUp != null) {
@@ -44,6 +46,9 @@ public class AccountSelectionController {
             } catch (Exception ex) {
                 System.out.println("Error in account selection: " + ex.getMessage());
             }
+        }
+        public void addNewCalendar(AddCalendarFrame PopUp) {
+            accountPage.getAddCalendarFrame().setButtonActionListener(new AddCalendar());
         }
 
     }

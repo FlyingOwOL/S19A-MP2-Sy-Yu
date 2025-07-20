@@ -21,35 +21,34 @@ public class LoginController {
         public void actionPerformed(ActionEvent e){
             enteredName = accountLoginPage.getUsername();
             enteredPassword = accountLoginPage.getPassword(); 
-            if (enteredName.isEmpty()) {
-                System.out.println("Please enter username");
+            if (enteredName.isEmpty() ||
+                enteredPassword.isEmpty()) { //we can't have a user without a password
+                System.out.println("Please enter username and password.");
             } else {
                 if (e.getSource() == accountLoginPage.getLoginButton()){
-                    boolean isFound = false;
-                    int accountIndex = -1; // Initialize accountIndex to -1 to indicate no account found
-
-                    for (int i = 0; i < MainController.accounts.size(); i++) {
-                        AccountModel account = MainController.accounts.get(i);
-                        if (account.getName().equals(enteredName) && account.checkAuthority(enteredPassword)) {
-                            isFound = true;
-                            accountIndex = i; // Store the index of the found account
-                            accountLoginPage.dispose(); // Close the login page
-                            break;
-                        }
-                    }
-
-                    if (!isFound) {
+                    AccountModel foundAccount = MainController.getAccountByName(enteredName);
+                    if (foundAccount == null) {
                         // Show error message if account not found
                         System.out.println("Account not found");
                     } else {
-                        // Use the stored accountIndex to get the correct account
-                        new AccountPage(MainController.accounts.get(accountIndex));
+                        AccountPage newAccountPage = new AccountPage(foundAccount);
+                        foundAccount.setAccountPage(newAccountPage);
+                        MainController.setupFeatureControllers(foundAccount.getAccountPage());
+
+                        accountLoginPage.dispose(); // Close the login page
                     }
 
                 } else if (e.getSource() == accountLoginPage.getCreateAccountButton()) {
                     boolean isTaken = MainController.accountExists(enteredName);
                     if (!isTaken) {
-                        MainController.accounts.add(new AccountModel(enteredName, enteredPassword));
+                        AccountModel newAccount = new AccountModel(enteredName, enteredPassword);
+                        AccountPage newAccountPage = new AccountPage(newAccount);
+                        newAccount.setAccountPage(newAccountPage);
+                        MainController.setupFeatureControllers(newAccount.getAccountPage());
+                        MainController.accounts.add(newAccount);
+                         
+                        accountLoginPage.dispose(); // Close the login page
+
                         System.out.println("Account created successfully.");
                     } else {
                         System.out.println("Account name is already taken.");
