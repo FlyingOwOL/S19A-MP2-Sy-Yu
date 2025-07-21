@@ -48,7 +48,7 @@ public class AccountSelectionController {
             }
         }
         public void addNewCalendar(AddCalendarFrame PopUp) {
-            accountPage.getAddCalendarFrame().setButtonActionListener(new AddCalendar());
+            accountPage.getAddCalendarFrame().setButtonActionListener(new AddCalendarListener());
         }
 
     }

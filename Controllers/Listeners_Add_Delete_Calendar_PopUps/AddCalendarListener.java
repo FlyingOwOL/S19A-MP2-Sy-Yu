@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import Views.Add_Delete_Calendar_PopUps.AddCalendarFrame;
 
-public class AddCalendar implements ActionListener{
+public class AddCalendarListener implements ActionListener{
     AddCalendarFrame addCalendarFrame;
     public void actionPerformed(ActionEvent e){
         if (e.getSource() == addCalendarFrame.getCreationType()){
