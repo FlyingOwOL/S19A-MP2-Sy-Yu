@@ -13,6 +13,8 @@ import javax.swing.ButtonGroup;
 
 import java.awt.Color;
 
+import java.awt.event.ActionListener;
+
 public class AddCalendarFrame extends PopUpFormat {
     private JPanel headerPanel = new JPanel();
     private JPanel contentPanel = new JPanel();
@@ -98,6 +100,12 @@ public class AddCalendarFrame extends PopUpFormat {
     public JRadioButton getImportType() {
         return importType;
     }
+    public JComboBox<String> getImportedCalendarBox() {
+        return importedCalendarBox;
+    }
+    public JTextField getCalendarPasswordField(){
+        return calendarPasswordField;
+    }    
     public String getCalendarType (){
         return (String) calendarTypeBox.getSelectedItem();
     }
@@ -118,11 +126,21 @@ public class AddCalendarFrame extends PopUpFormat {
     }
 
     //setters
-    public void setButtonActionListener(java.awt.event.ActionListener actionListener) {
+    public void setButtonActionListener(ActionListener actionListener) {
         addButton.addActionListener(actionListener);
     }
     public void setCalendarName(String name) {
         calendarNameField.setText(name);
+        updateGUI();
+    }
+    public void setImportCalendarListener(ActionListener actionListener) {
+        importType.addActionListener(actionListener);
+    }
+    public void setCreationTypeListener(ActionListener actionListener) {
+        creationType.addActionListener(actionListener);
+    }
+
+    public void updateGUI(){
         this.revalidate();
         this.repaint();
     }

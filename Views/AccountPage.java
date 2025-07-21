@@ -144,7 +144,9 @@ public class AccountPage extends JFrame {
         calendarPanel.revalidate();
         calendarPanel.repaint();
     }
-
+    public void setAddCalendarFrame(AddCalendarFrame addCalendarFrame) {
+        this.addCalendarFrame = addCalendarFrame;
+    }
     public void updateDateLabel(String dateText) {
         dateLabel.setText(dateText);
     }
@@ -166,4 +168,5 @@ public class AccountPage extends JFrame {
     public void setJumpDateButtonListener(ActionListener listener) {
         jumpDateButton.addActionListener(listener);
     }
+
 }
