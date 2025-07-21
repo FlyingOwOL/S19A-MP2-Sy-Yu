@@ -24,6 +24,9 @@ public class AccountSelectionListener implements ActionListener {
             optionSelected = accountPage.getSelectedAccount();
             JFrame popUp = null;
             switch (optionSelected) {
+                case "Switch":
+                    popUp = new SwitchCalendarFrame();
+                    break;
                 case "Add Calendar":
                     popUp = new AddCalendarFrame();
                     addNewCalendar((AddCalendarFrame) popUp);

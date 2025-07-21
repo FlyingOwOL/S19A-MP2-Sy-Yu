@@ -30,10 +30,15 @@ public class LoginListener implements ActionListener {
             if (foundAccount == null) {
                 System.out.println("Account not found");
             } else {
-                AccountPage newAccountPage = new AccountPage(foundAccount);
-                foundAccount.setAccountPage(newAccountPage);
-                MainController.setupFeatureControllers(newAccountPage);
-                accountLoginPage.dispose();
+                if (foundAccount.checkAuthority(enteredPassword)){
+                    AccountPage newAccountPage = new AccountPage(foundAccount);
+                    foundAccount.setAccountPage(newAccountPage);
+                    MainController.setupFeatureControllers(newAccountPage);
+                    accountLoginPage.dispose();                    
+                } else {
+                    System.out.println("Incorrect password. Please try again.");
+                }
+
             }
 
         } else if (e.getSource() == accountLoginPage.getCreateAccountButton()) {
