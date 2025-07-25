@@ -1,0 +1,75 @@
+Instructions:
+* Your video recording should not exceed 10 minutes otherwise there will be deductions.
+* Write your script before recording to make sure you do not exceed the given time.
+* NO editing / cutting of the video is allowed. Any suspicion of editing will result to 0 grade for the MCO1.
+* Student/s should open their camera + microphone and fully show their face during the whole demo.
+* If by pair, both of the members should be present otherwise the MCO1 will result to 0 grade.
+
+DEMO SCRIPT:
+* Start with 2-3 minutes explaining the created UML of the application.
+* Focus on:
+	- classes created, what each class is for and why they are useful in the design
+	- explaining the relationships between classes, why they are designed that way
+	- which classes has setters/getters and where it will be used
+* Next, show compiling and running of the Java program in the COMMAND LINE.
+* STRICTLY follow the steps below, (any step missed will incur deduction):
+	(in case of incorrect / missing input, explain what is allowed and why)
+Part 1.
+	- Create an account with username "Bram Stoker" then password "DRAcula"
+	- Create another account with username "bram_stoker" then password "DRAcula"
+	- Create another account with username "bram stoker" then password "DRACULA!"
+	- Create another account with your preferred username and password
+Part 2.
+	- Login using any of the created valid accounts for bram stoker, not your preferred
+	- Add an entry to June 28 "Count Dracula's special dinner" from 10PM to 11PM
+	- Move the monthly view to the next month (July)
+	- Add an entry to July 8 "Back to CCPROG3" for 12:45PM to 2:15PM
+	- Add a public calendar with name "Family"
+	- Access the "Family" calendar
+	- Move to May and add an entry to May 5 "Sister Mina back to PH" with no time specified
+		- if required, write from 9AM to 10AM
+	- Add another to same date "Go to airport" from 9:30 to 10AM
+	- Move to December and add entry to Dec 24 "Xmas eve @Jonathan Harker's place" 10AM to 10PM
+		- adjust time to anything acceptable to your application if given is not and explain
+	- Logout of the account
+Part 3.
+	- Login using your created preferred account, not bram stoker's
+	- Add an entry to June 28 "Deadline of MCO1" from 9PM to 9PM
+	- Add a private calendar with no name
+	- Add another private calendar named after the username
+	- Add a private calendar named "My Tasks"
+	- Add an entry to June 28 "Submit MCO1" from 9AM to 9PM
+	- Add a public calendar named "PH holidays"
+	- Change to "PH holidays" calendar
+	- Add an entry "Independence Day" to June 12 12AM to 11:59PM
+	- Add a calendar, choose the existing public calendar named "Family"
+	- Browse through the "Family" calendar to see the entries from May to December
+	- Add an entry to January 1, 2026 "Happy New Year to all!" for 12AM to 12PM
+	- Go back to December and edit the "Family" calendar's Dec 24 entry to change time to until 11:59PM
+	- Go back to May and delete the "Family" calendar's May 5 entry
+	- Logout of the account
+Part 4.
+	- Login using the account used in Part 2
+	- Add a public calendar, choose the existing "PH holidays"
+	- Move the calendar view to until January 2026
+	- Change calendar to "Family"
+	- Move the view until January 2026, pausing and explaining those with existing entries
+	- Add an entry to February 14, 2026 "Happy Valentines my dear Mina"
+	- Add an 'existing' calendar named "My Tasks"
+	- Delete the account currently logged in
+	- Try to login with the deleted account
+Part 5.
+	- Login again using the account used in Part 3
+	- Change to "My Tasks" calendar
+	- Change to "PH holidays" calendar
+	- Change to "Family" calendar
+	- Go back to May view
+	- Browse until February 2026, pausing to each entry and explain
+	- Delete "My Tasks" calendar
+	- Change calendar to default (name same as username's)
+	- Delete "PH holidays" calendar
+	- Logout
+	- Exit Java application
+
+That's it! Congratulations on completing your MCO1.
+Goodluck for MCO2 !!
