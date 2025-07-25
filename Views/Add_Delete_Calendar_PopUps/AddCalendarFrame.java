@@ -59,6 +59,7 @@ public class AddCalendarFrame extends PopUpFormat {
         calendarPasswordField.setBounds(50, 40, 300, 30);
         contentPanel.add(calendarNameField);        
         contentPanel.add(calendarPasswordField);
+        calendarPasswordField.setVisible(false);
 
         // Add button
         addButton.setBounds(150, 75, 100, 30);
@@ -81,8 +82,11 @@ public class AddCalendarFrame extends PopUpFormat {
         // Add JComboBox
         calendarTypeBox.setBounds(47, 180, 300, 30);
         contentPanel.add(calendarTypeBox);
+        calendarTypeBox.setVisible(false);
+
         importedCalendarBox.setBounds(47, 220, 300, 30);
         contentPanel.add(importedCalendarBox);
+        importedCalendarBox.setVisible(false);  
 
         // Add panels to Frame
         this.add(headerPanel);
@@ -106,6 +110,9 @@ public class AddCalendarFrame extends PopUpFormat {
     public JTextField getCalendarPasswordField(){
         return calendarPasswordField;
     }    
+    public JComboBox<String> getCalendarTypeBox() {
+        return calendarTypeBox;
+    }
     public String getCalendarType (){
         return (String) calendarTypeBox.getSelectedItem();
     }
@@ -139,9 +146,30 @@ public class AddCalendarFrame extends PopUpFormat {
     public void setCreationTypeListener(ActionListener actionListener) {
         creationType.addActionListener(actionListener);
     }
-
+    public void setCalendarTypeBoxListener(ActionListener actionListener) {
+        calendarTypeBox.addActionListener(actionListener);
+    }
     public void updateGUI(){
         this.revalidate();
         this.repaint();
+    }
+
+    public void createMode(){
+        importedCalendarBox.setVisible(false);
+        calendarTypeBox.setVisible(true);
+        updateGUI();
+    }
+    public void importMode(){
+        importedCalendarBox.setVisible(true);
+        calendarTypeBox.setVisible(false);
+        updateGUI();
+    }
+    public void familyCalendarMode() {
+        calendarPasswordField.setVisible(true);
+        updateGUI();
+    }
+    public void anyCalendarMode() {
+        calendarPasswordField.setVisible(false);
+        updateGUI();
     }
 }

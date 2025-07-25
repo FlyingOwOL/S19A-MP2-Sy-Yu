@@ -12,15 +12,27 @@ public class AddCalendarListener implements ActionListener{
         this.addCalendarFrame = addCalendarFrame;
     }
     public void actionPerformed(ActionEvent e){
+        String selectedType = null;
         if (e.getSource() == addCalendarFrame.getCreationType()){
-            addCalendarFrame.getImportedCalendarBox().setVisible(false);
-            addCalendarFrame.getCalendarPasswordField().setVisible(false);
-            addCalendarFrame.updateGUI();
+            addCalendarFrame.createMode();
+            if (e.getSource() ==  addCalendarFrame.getCalendarTypeBox()){ //changes if selected calendar is family
+                selectedType = addCalendarFrame.getCalendarType();
+            }
+
         } else if (e.getSource() == addCalendarFrame.getImportType()){
-            addCalendarFrame.getImportedCalendarBox().setVisible(true);
-            addCalendarFrame.getCalendarPasswordField().setVisible(true);
-            addCalendarFrame.updateGUI();
+            addCalendarFrame.importMode();
+            if (addCalendarFrame.getImportedCalendarBox().getSelectedItem().equals("Family")) {
+                selectedType = "Family";
+            } 
         } 
+
+
+
+        if (selectedType.equals("Family")) { //constantly checks if type is family
+            addCalendarFrame.familyCalendarMode();
+        } else {
+            addCalendarFrame.anyCalendarMode();
+        }        
         if (e.getSource() == addCalendarFrame.getAddButton()){
             
         }

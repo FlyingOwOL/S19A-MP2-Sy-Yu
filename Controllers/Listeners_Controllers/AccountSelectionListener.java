@@ -53,6 +53,8 @@ public class AccountSelectionListener implements ActionListener {
     private void addNewCalendar(AddCalendarFrame popUp) {
         accountPage.setAddCalendarFrame(popUp);
         accountPage.getAddCalendarFrame().setImportCalendarListener(new AddCalendarListener(popUp));
+        accountPage.getAddCalendarFrame().setCreationTypeListener(new AddCalendarListener(popUp));
+        accountPage.getAddCalendarFrame().setCalendarTypeBoxListener(new AddCalendarListener(popUp));
     }
     
 }

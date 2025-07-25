@@ -1,14 +1,17 @@
 package Views;
 
 import Utilities.FixedValues;
+import Views.AddEntryPopUps.*;
 import Views.Add_Delete_Calendar_PopUps.*;
 
 import javax.swing.*;
 
 import Models.Account.AccountModel;
+import Models.Calendar.CalendarParentModel;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class AccountPage extends JFrame {
     private JPanel headerPanel = new JPanel();
@@ -35,14 +38,21 @@ public class AccountPage extends JFrame {
     private CalendarWeeklyView weeklyCalendarView = new CalendarWeeklyView();
 
     private AccountModel currentAccount;
+    private ArrayList<CalendarParentModel> currentCalendar;
 
     private AddCalendarFrame addCalendarFrame;
     private DeleteCalendarFrame deleteCalendarFrame;
     private ViewJournal viewJournal;
     private SwitchCalendarFrame switchCalendarFrame;
 
+    private AddEvent addEvent;
+    private AddTask addTask;
+    private AddMeeting addMeeting;
+    private AddJournal addJournal;
+
     public AccountPage(AccountModel account) {
         this.currentAccount = account;
+        this.currentCalendar = account.getCalendars();
 
         this.setTitle("Welcome back " + currentAccount.getName() + "!");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -144,9 +154,13 @@ public class AccountPage extends JFrame {
         calendarPanel.revalidate();
         calendarPanel.repaint();
     }
+
+
     public void setAddCalendarFrame(AddCalendarFrame addCalendarFrame) {
         this.addCalendarFrame = addCalendarFrame;
     }
+
+
     public void updateDateLabel(String dateText) {
         dateLabel.setText(dateText);
     }
