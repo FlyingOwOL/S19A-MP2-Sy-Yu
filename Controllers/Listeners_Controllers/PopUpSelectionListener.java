@@ -33,9 +33,6 @@ public class PopUpSelectionListener implements ActionListener {
                 case "Journal":
                     popUp = new AddJournal();
                     break;
-                default:
-                    System.out.println("Unrecognized entry type: " + selectedEntry);
-                    return;
             }
 
             if (popUp != null) {

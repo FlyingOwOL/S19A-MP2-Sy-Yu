@@ -29,7 +29,7 @@ public class AccountSelectionListener implements ActionListener {
                     break;
                 case "Add Calendar":
                     popUp = new AddCalendarFrame();
-                    addNewCalendar((AddCalendarFrame) popUp);
+                    addNewCalendar((AddCalendarFrame)popUp);
                     break;
                 case "Delete Calendar":
                     popUp = new DeleteCalendarFrame();
@@ -51,6 +51,10 @@ public class AccountSelectionListener implements ActionListener {
     }
 
     private void addNewCalendar(AddCalendarFrame popUp) {
-        accountPage.getAddCalendarFrame().setButtonActionListener(new AddCalendarListener());
+        accountPage.setAddCalendarFrame(popUp);
+        accountPage.getAddCalendarFrame().setImportCalendarListener(new AddCalendarListener(popUp));
+        accountPage.getAddCalendarFrame().setCreationTypeListener(new AddCalendarListener(popUp));
+        accountPage.getAddCalendarFrame().setCalendarTypeBoxListener(new AddCalendarListener(popUp));
     }
+    
 }
