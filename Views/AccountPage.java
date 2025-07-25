@@ -11,6 +11,7 @@ import Models.Calendar.CalendarParentModel;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AccountPage extends JFrame {
@@ -142,6 +143,9 @@ public class AccountPage extends JFrame {
     public SwitchCalendarFrame getSwitchCalendarFrame() {
         return switchCalendarFrame;
     }
+    public AccountModel getCurrentAccount() {
+        return this.currentAccount;
+    }
 
     //setters
     public void changeCalendarDisplay(String displayMode) {
@@ -182,5 +186,4 @@ public class AccountPage extends JFrame {
     public void setJumpDateButtonListener(ActionListener listener) {
         jumpDateButton.addActionListener(listener);
     }
-
 }
