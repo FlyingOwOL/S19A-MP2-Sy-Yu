@@ -33,8 +33,8 @@ public class AddEventListener implements ActionListener {
             newEvent.setEndDate(endDateTime);
             newEvent.setDetails(details);
 
-            accountPage.getCurrentCalendar().addEntry(newEvent);   //how tf do I add this to the current account
-            
+            accountPage.getCurrentCalendar().addEntry(newEvent);  
+
             addEvent.dispose();
         }
     }

@@ -6,6 +6,8 @@ import Views.AddEntryPopUps.*;
 import javax.swing.JFrame;
 
 import Controllers.Listeners_AddEntryPopUps.AddEventListener;
+import Controllers.Listeners_AddEntryPopUps.AddJournalListener;
+import Controllers.Listeners_AddEntryPopUps.AddMeetingListener;
 import Controllers.Listeners_AddEntryPopUps.AddTaskListener;
 
 import java.awt.event.ActionEvent;
@@ -35,11 +37,11 @@ public class PopUpSelectionListener implements ActionListener {
                     break;
                 case "Meeting":
                     popUp = new AddMeeting();
-                    //addNewMeeting ((AddMeeting)popUp, accountPage);
+                    addNewMeeting ((AddMeeting)popUp, accountPage);
                     break;
                 case "Journal":
                     popUp = new AddJournal();
-                    //addNewJournal ((AddJournal)popUp, accountPage);
+                    addNewJournal ((AddJournal)popUp, accountPage);
                     break;
             }
 
@@ -59,5 +61,13 @@ public class PopUpSelectionListener implements ActionListener {
     private void addNewTask (AddTask popUp, AccountPage accountPage){
         accountPage.setAddTask(popUp);
         accountPage.getAddTask().setButtonActionListener(new AddTaskListener(popUp, accountPage));
+    }
+    private void addNewMeeting (AddMeeting popUp, AccountPage accountPage){
+        accountPage.setAddMeeting(popUp);
+        accountPage.getAddMeeting().setButtonActionListener(new AddMeetingListener(popUp, accountPage));
+    }
+    private void addNewJournal (AddJournal popUp, AccountPage accountPage){
+        accountPage.setAddJournal(popUp);
+        accountPage.getAddJournal().setButtonActionListener(new AddJournalListener(popUp, accountPage));
     }
 }

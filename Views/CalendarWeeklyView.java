@@ -24,6 +24,9 @@ public class CalendarWeeklyView extends JScrollPane {
     private ArrayList<JLabel> dayLabel = new ArrayList<>();
     private JPanel calendarPanel = new JPanel();    
     private ArrayList<JPanel> dayPanel = new ArrayList<>();
+
+    //TODO entries should also be shown in the weekly view
+
     public CalendarWeeklyView() {
         // Get the current date
         currentDate = LocalDate.now();

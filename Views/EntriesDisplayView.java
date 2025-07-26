@@ -22,6 +22,10 @@ public class EntriesDisplayView extends JFrame {
     
     private String[] columnNames = {"Type", "Title", "Date", "Details", "Status/Priority", "Organizer/Creator"};
 
+    //TODO entries should be sorted from Task >> Meeting >> Event. Task is High to Low the others is any. 
+
+    //TODO Since the entries should be editable they should be changeable here in the entries display view
+
     public EntriesDisplayView(CalendarParentModel calendar) {
         initializeComponents();
         loadEntries(calendar);
