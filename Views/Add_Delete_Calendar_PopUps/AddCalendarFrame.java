@@ -20,9 +20,9 @@ public class AddCalendarFrame extends PopUpFormat {
     private JPanel contentPanel = new JPanel();
 
     private JLabel titleLabel = new JLabel("Add Calendar");
-        
+
     private JTextField calendarNameField = new JTextField();
-    private JTextField calendarPasswordField = new JTextField();    
+    private JTextField calendarPasswordField = new JTextField();
 
     private JButton addButton = new JButton("Add");
 
@@ -31,7 +31,7 @@ public class AddCalendarFrame extends PopUpFormat {
 
     private String[] calendarTypes = new String[]{"Normal", "Personal", "Family"};
     //TODO importedCalendars dynamically change depending on what's in public calendars
-    private String[] importedCalendars = new String[]{"Suck", "My", "Calendar", "off", "Bro"}; 
+    private String[] importedCalendars = new String[]{"Suck", "My", "Calendar", "off", "Bro"};
     private JComboBox<String> calendarTypeBox = new JComboBox<>(calendarTypes);
     private JComboBox<String> importedCalendarBox = new JComboBox<>(importedCalendars);
 
@@ -58,7 +58,7 @@ public class AddCalendarFrame extends PopUpFormat {
         calendarPasswordField.setFont(FixedValues.BUTTON_FONT);
         calendarNameField.setBounds(50, 5, 300, 30);
         calendarPasswordField.setBounds(50, 40, 300, 30);
-        contentPanel.add(calendarNameField);        
+        contentPanel.add(calendarNameField);
         contentPanel.add(calendarPasswordField);
         calendarPasswordField.setVisible(false);
 
@@ -70,12 +70,12 @@ public class AddCalendarFrame extends PopUpFormat {
         // Add radio buttons
         creationType.setBounds(50, 110, 200, 30);
         importType.setBounds(50, 140, 200, 30);
-        
+
         // Group the radio buttons
         ButtonGroup group = new ButtonGroup();
         group.add(creationType);
         group.add(importType);
-        
+
         // Add radio buttons to contentPanel
         contentPanel.add(creationType);
         contentPanel.add(importType);
@@ -87,7 +87,7 @@ public class AddCalendarFrame extends PopUpFormat {
 
         importedCalendarBox.setBounds(47, 220, 300, 30);
         contentPanel.add(importedCalendarBox);
-        importedCalendarBox.setVisible(false);  
+        importedCalendarBox.setVisible(false);
 
         // Add panels to Frame
         this.add(headerPanel);
@@ -110,9 +110,12 @@ public class AddCalendarFrame extends PopUpFormat {
     }
     public JTextField getCalendarPasswordField(){
         return calendarPasswordField;
-    }    
+    }
     public JComboBox<String> getCalendarTypeBox() {
         return calendarTypeBox;
+    }
+    public JTextField getCalendarNameField() {
+        return calendarNameField;
     }
     public boolean isCreationTypeSelected() {
         return creationType.isSelected();

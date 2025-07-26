@@ -11,6 +11,7 @@ import Models.Calendar.CalendarParentModel;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class AccountPage extends JFrame {
@@ -34,8 +35,8 @@ public class AccountPage extends JFrame {
     private JComboBox<String> accountsBox = new JComboBox<>(accountSelection);
     private JComboBox<String> calendarDisplayBox = new JComboBox<>(calendarDisplayModes);
 
-    private CalendarMonthlyView monthlyCalendarView = new CalendarMonthlyView();
-    private CalendarWeeklyView weeklyCalendarView = new CalendarWeeklyView();
+    private CalendarMonthlyView monthlyCalendarView;
+    private CalendarWeeklyView weeklyCalendarView;
 
     private AccountModel currentAccount;
     private ArrayList<CalendarParentModel> calendarList;
@@ -56,6 +57,10 @@ public class AccountPage extends JFrame {
         this.currentAccount = account;
         this.calendarList = account.getCalendars();
         this.currentCalendar = calendarList.get(0);
+
+        // Initialize calendar views with current date
+        this.monthlyCalendarView = new CalendarMonthlyView();
+        this.weeklyCalendarView = new CalendarWeeklyView();
 
         this.setTitle("Welcome back " + currentAccount.getName() + "!");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -167,7 +172,7 @@ public class AccountPage extends JFrame {
                 returnCalendar =  calendar;
             }
         }
-        return returnCalendar;
+        return returnCalendar; // Return null if no account found
     }
     public CalendarParentModel getCurrentCalendar(){
         return this.currentCalendar;
@@ -178,6 +183,7 @@ public class AccountPage extends JFrame {
         this.calendarPanel.revalidate();
         this.calendarPanel.repaint();
     }
+
     public void changeCalendarDisplay(String displayMode) {
         calendarPanel.removeAll(); // Clear existing components
         if (displayMode.equals("Month")) {
@@ -187,6 +193,17 @@ public class AccountPage extends JFrame {
         }
         updateGUI();
     }
+
+    // New method to update calendar views with current date from CalendarDateController
+    public void updateCalendarViewsWithDate(LocalDate date) {
+        monthlyCalendarView.updateDate(date);
+        weeklyCalendarView.updateDate(date);
+
+        // Refresh the current view
+        String currentDisplay = getSelectedCalendarDisplay();
+        changeCalendarDisplay(currentDisplay);
+    }
+
     public void switchCurrentCalendar (CalendarParentModel newCalendar){
         this.currentCalendar = newCalendar;
         updateGUI();

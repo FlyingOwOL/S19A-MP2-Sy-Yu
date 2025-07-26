@@ -1,6 +1,9 @@
 package Controllers;
 
 import Views.AccountPage;
+import Controllers.Listeners_Controllers.PreviousDateListener;
+import Controllers.Listeners_Controllers.NextDateListener;
+import Controllers.Listeners_Controllers.JumpDateListener;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,8 +20,22 @@ public class CalendarDateController {
         this.currentDate = LocalDateTime.now();
         this.displayFormatter = DateTimeFormatter.ofPattern("MMM - yyyy");
 
+        // Connect the navigation listeners
+        setupNavigationListeners();
+
         // Initial display
         updateDateDisplay();
+    }
+
+    private void setupNavigationListeners() {
+        // Connect Previous button
+        accountPage.setPreviousButtonListener(new PreviousDateListener(accountPage, this));
+
+        // Connect Next button
+        accountPage.setNextButtonListener(new NextDateListener(accountPage, this));
+
+        // Connect Jump Date button
+        accountPage.setJumpDateButtonListener(new JumpDateListener(accountPage, this));
     }
 
     public void updateDateDisplay() {
@@ -31,19 +48,27 @@ public class CalendarDateController {
 
             if (startOfWeek.getMonth() == endOfWeek.getMonth()) {
                 displayText = String.format("%s %d",
-                    startOfWeek.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
-                    endOfWeek.getYear());
+                        startOfWeek.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
+                        endOfWeek.getYear());
             } else {
                 displayText = String.format("%s - %s %d",
-                    startOfWeek.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
-                    endOfWeek.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
-                    endOfWeek.getYear());
+                        startOfWeek.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
+                        endOfWeek.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH),
+                        endOfWeek.getYear());
             }
         } else {
             displayText = currentDate.format(displayFormatter);
         }
 
         accountPage.updateDateLabel(displayText);
+
+        // Update the calendar view to reflect the new date
+        updateCalendarView();
+    }
+
+    private void updateCalendarView() {
+        // Force the calendar view to refresh with the new date
+        accountPage.updateCalendarViewsWithDate(currentDate.toLocalDate());
     }
 
     public void navigateToPreviousMonth() {
@@ -68,7 +93,7 @@ public class CalendarDateController {
 
     public void jumpToDate(int month, int year) {
         LocalDateTime newDate = LocalDateTime.of(year, month, 1,
-            currentDate.getHour(), currentDate.getMinute(), currentDate.getSecond());
+                currentDate.getHour(), currentDate.getMinute(), currentDate.getSecond());
         newDate = newDate.withDayOfMonth(Math.min(currentDate.getDayOfMonth(), newDate.toLocalDate().lengthOfMonth()));
         currentDate = newDate;
         updateDateDisplay();
