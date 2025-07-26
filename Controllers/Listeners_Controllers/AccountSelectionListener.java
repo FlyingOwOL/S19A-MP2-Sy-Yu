@@ -4,7 +4,6 @@ import Views.AccountPage;
 import Views.EntriesDisplayView;
 import Views.Add_Delete_Calendar_PopUps.*;
 
-import Controllers.Listeners_Add_Delete_Calendar_PopUps.AddCalendarListener;
 import Controllers.LoginController;
 
 import javax.swing.*;
@@ -25,21 +24,22 @@ public class AccountSelectionListener implements ActionListener {
             optionSelected = accountPage.getSelectedAccount();
             JFrame popUp = null;
             switch (optionSelected) {
-                case "View Entries": //not finished
-                    popUp = new EntriesDisplayView(this.accountPage.getCalendarByName("Sample"));
+                case "View Entries":
+                    popUp = new EntriesDisplayView(this.accountPage.getCurrentCalendar());
                     break;
                 case "Switch":
-                    popUp = new SwitchCalendarFrame();
+                    popUp = new SwitchCalendarFrame(); //TODO add switch calendar
+                    //switchCalendar((SwitchCalendarFrame)popUp, accountPage);
                     break;
                 case "Add Calendar":
                     popUp = new AddCalendarFrame();
-                    addNewCalendar((AddCalendarFrame)popUp);
+                    addNewCalendar((AddCalendarFrame)popUp, accountPage);
                     break;
-                case "Delete Calendar":
-                    popUp = new DeleteCalendarFrame();
+                case "Delete Calendar": 
+                    popUp = new DeleteCalendarFrame(); //TODO add delete calendar
                     break;
                 case "View Journal":
-                    popUp = new ViewJournal();
+                    popUp = new ViewJournal();  //TODO add View Journal
                     break;
                 case "Sign out":
                     accountPage.dispose();
@@ -54,11 +54,8 @@ public class AccountSelectionListener implements ActionListener {
         }
     }
 
-    private void addNewCalendar(AddCalendarFrame popUp) {
+    private void addNewCalendar(AddCalendarFrame popUp, AccountPage accountPage) {
         accountPage.setAddCalendarFrame(popUp);
-        accountPage.getAddCalendarFrame().setImportCalendarListener(new AddCalendarListener(popUp));
-        accountPage.getAddCalendarFrame().setCreationTypeListener(new AddCalendarListener(popUp));
-        accountPage.getAddCalendarFrame().setCalendarTypeBoxListener(new AddCalendarListener(popUp));
     }
     
 }
