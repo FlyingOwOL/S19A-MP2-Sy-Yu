@@ -23,19 +23,25 @@ public class Meeting extends EntryModel{
 
     //getters
     public String getModality() {
-        return modality;
+        return this.modality;
     }
     public String getVenue() {
-        return venue;
+        return this.venue;
     }
     public String getLink() {
-        return link;
+        return this.link;
     }
     public LocalDate getStartDate() {
-        return startDate;
+        return this.startDate;
     }
     public LocalDate getEndDate() {
-        return endDate;
+        return this.endDate;
+    }
+    public LocalDateTime getStartDateTime(){
+        return this.startDateTime;
+    }
+    public LocalDateTime getEndDateTime(){
+        return this.endDateTime;
     }
     
     // Setters

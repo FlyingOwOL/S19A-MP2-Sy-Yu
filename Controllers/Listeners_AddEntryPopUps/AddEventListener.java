@@ -4,9 +4,6 @@ import Views.AccountPage;
 import Views.AddEntryPopUps.AddEvent;
 
 import java.awt.event.ActionListener;
-import java.util.Calendar;
-
-import Models.Calendar.CalendarParentModel;
 import Models.Entry.EventEntry;
 
 import java.awt.event.ActionEvent;

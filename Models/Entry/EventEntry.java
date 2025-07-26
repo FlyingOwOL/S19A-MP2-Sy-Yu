@@ -21,16 +21,22 @@ public class EventEntry extends EntryModel{
 
     //getters
     public String getVenue() {
-        return venue;
+        return this.venue;
     }
     public String getOrganizer() {
-        return organizer;
+        return this.organizer;
     }
     public LocalDate getStartDate() {
-        return startDate;
+        return this.startDate;
     }
     public LocalDate getEndDate() {
-        return endDate;
+        return this.endDate;
+    }
+    public LocalDateTime getEnDateTime(){
+        return this.endDateTime;
+    }
+    public LocalDateTime getStarDateTime(){
+        return this.startDateTime;
     }
 
     //setters
