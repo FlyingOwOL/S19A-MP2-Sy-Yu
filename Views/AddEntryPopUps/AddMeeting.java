@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import java.awt.Color;
 
@@ -30,6 +31,7 @@ public class AddMeeting extends PopUpFormat {
     private JLabel startLabel = new JLabel("Start Date:");
     private JLabel endDateLabel = new JLabel("End Date:");
     
+    private JTextField titleField = new JTextField();
     private JTextArea detailArea = new JTextArea();
     private JScrollPane detailScrollPane = new JScrollPane(detailArea);
     private JButton submitButton = new JButton("Submit");
@@ -55,6 +57,8 @@ public class AddMeeting extends PopUpFormat {
         this.add(contentPanel);
 
         // Position labels and fields with fixed coordinates
+        titleField.setBounds(20, 20, 360, 30);
+
         modalityLabel.setBounds(20, 20, 100, 20);
         modalityField.setBounds(120, 20, 250, 25);
         
@@ -83,6 +87,7 @@ public class AddMeeting extends PopUpFormat {
         contentPanel.add(submitButton); // Add button to content panel
 
         // Add labels and fields to content panel
+        contentPanel.add(titleField);
         contentPanel.add(modalityLabel);
         contentPanel.add(modalityField);
         contentPanel.add(venueLabel);
@@ -95,5 +100,36 @@ public class AddMeeting extends PopUpFormat {
         contentPanel.add(endDateField);
 
         this.setVisible(true);
+    }
+
+    //getters
+    public JTextField getTitleField() {
+        return titleField;
+    }
+    public JTextField getModalityField() {
+        return modalityField;
+    }
+    public JTextField getVenueField() {
+        return venueField;
+    }
+    public JTextField getLinkField() {
+        return linkField;
+    }
+    public JTextField getStartDateField() {
+        return startDateField;
+    }
+    public JTextField getEndDateField() {
+        return endDateField;
+    }
+    public JTextArea getDetailArea() {
+        return detailArea;
+    }
+    public JButton getSubmitButton() {
+        return submitButton;
+    }
+
+    //setters
+    public void setButtonActionListener(ActionListener actionListener) {
+        submitButton.addActionListener(actionListener);
     }
 }

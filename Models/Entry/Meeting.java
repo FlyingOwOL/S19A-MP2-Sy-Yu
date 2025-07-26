@@ -1,21 +1,24 @@
 package Models.Entry;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Meeting extends EntryModel{
     private String modality;
     private String venue;
     private String link;
-    private LocalDate startTime;
-    private LocalDate endTime;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private LocalDateTime startDateTime;
+    private LocalDateTime endDateTime;
 
     public Meeting(String title, String modality){
         super(title);
         this.modality = modality;
         this.venue = "";
         this.link = "";
-        this.startTime = LocalDate.of(2000, 1, 1); // Default date
-        this.endTime = LocalDate.of(2000, 1, 1); // Default date
+        this.startDate = LocalDate.of(2000, 1, 1); // Default date
+        this.endDate = LocalDate.of(2000, 1, 1); // Default date
     }
 
     //getters
@@ -27,6 +30,12 @@ public class Meeting extends EntryModel{
     }
     public String getLink() {
         return link;
+    }
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+    public LocalDate getEndDate() {
+        return endDate;
     }
     
     // Setters
@@ -40,6 +49,14 @@ public class Meeting extends EntryModel{
     }
     public void setLink(String link) {
         this.link = link;
+    }
+    public void setStartDate (String startDate){
+        this.startDate = LocalDate.parse(startDate);
+        this.startDateTime = LocalDateTime.parse(startDate);
+    }
+    public void setEndDate (String endDate){
+        this.endDate = LocalDate.parse(endDate);
+        this.endDateTime = LocalDateTime.parse(endDate);
     }
 
     /*

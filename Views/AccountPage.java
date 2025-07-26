@@ -11,7 +11,6 @@ import Models.Calendar.CalendarParentModel;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AccountPage extends JFrame {
@@ -29,7 +28,7 @@ public class AccountPage extends JFrame {
     private JButton jumpDateButton = new JButton("Jump to Date");
 
     private String[] entrySelection = {"Event", "Task", "Meeting", "Journal"};
-    private String[] accountSelection = {"Switch", "Add Calendar", "Delete Calendar", "View Journal", "Sign out"};
+    private String[] accountSelection = {"View Entries","Switch", "Add Calendar", "Delete Calendar", "View Journal", "Sign out"};
     private String[] calendarDisplayModes = {"Month", "Week"};
     private JComboBox<String> entriesBox = new JComboBox<>(entrySelection);
     private JComboBox<String> accountsBox = new JComboBox<>(accountSelection);
@@ -39,7 +38,9 @@ public class AccountPage extends JFrame {
     private CalendarWeeklyView weeklyCalendarView = new CalendarWeeklyView();
 
     private AccountModel currentAccount;
-    private ArrayList<CalendarParentModel> currentCalendar;
+    private ArrayList<CalendarParentModel> calendarList;
+    private CalendarParentModel currentCalendar;
+    private EntriesDisplayView entriesDisplayView;
 
     private AddCalendarFrame addCalendarFrame;
     private DeleteCalendarFrame deleteCalendarFrame;
@@ -53,7 +54,8 @@ public class AccountPage extends JFrame {
 
     public AccountPage(AccountModel account) {
         this.currentAccount = account;
-        this.currentCalendar = account.getCalendars();
+        this.calendarList = account.getCalendars();
+        this.currentCalendar = calendarList.get(0);
 
         this.setTitle("Welcome back " + currentAccount.getName() + "!");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -146,8 +148,36 @@ public class AccountPage extends JFrame {
     public AccountModel getCurrentAccount() {
         return this.currentAccount;
     }
+    public AddEvent getAddEvent() {
+        return this.addEvent;
+    }
+    public AddTask getAddTask() {
+        return this.addTask;
+    }
+    public AddMeeting getAddMeeting() {
+        return this.addMeeting;
+    }
+    public AddJournal getAddJournal() {
+        return this.addJournal;
+    }
+    public CalendarParentModel getCalendarByName(String calendarName) {
+        CalendarParentModel returnCalendar = null;
+        for (CalendarParentModel calendar : calendarList) {
+            if (calendar.getName().equals(calendarName)) {
+                returnCalendar =  calendar;
+            }
+        }
+        return returnCalendar;
+    }
+    public CalendarParentModel getCurrentCalendar(){
+        return this.currentCalendar;
+    }
 
     //setters
+    public void updateGUI(){
+        this.calendarPanel.revalidate();
+        this.calendarPanel.repaint();
+    }
     public void changeCalendarDisplay(String displayMode) {
         calendarPanel.removeAll(); // Clear existing components
         if (displayMode.equals("Month")) {
@@ -155,13 +185,38 @@ public class AccountPage extends JFrame {
         } else {
             calendarPanel.add(weeklyCalendarView);
         }
-        calendarPanel.revalidate();
-        calendarPanel.repaint();
+        updateGUI();
+    }
+    public void switchCurrentCalendar (CalendarParentModel newCalendar){
+        this.currentCalendar = newCalendar;
+        updateGUI();
     }
 
 
     public void setAddCalendarFrame(AddCalendarFrame addCalendarFrame) {
         this.addCalendarFrame = addCalendarFrame;
+    }
+    public void setDeleteCalendarFrame(DeleteCalendarFrame deleteCalendarFrame) {
+        this.deleteCalendarFrame = deleteCalendarFrame;
+    }
+    public void setViewJournal(ViewJournal viewJournal) {
+        this.viewJournal = viewJournal;
+    }
+    public void setSwitchCalendarFrame(SwitchCalendarFrame switchCalendarFrame) {
+        this.switchCalendarFrame = switchCalendarFrame;
+    }
+
+    public void setAddEvent(AddEvent addEvent) {
+        this.addEvent = addEvent;
+    }
+    public void setAddTask(AddTask addTask) {
+        this.addTask = addTask;
+    }
+    public void setAddMeeting(AddMeeting addMeeting) {
+        this.addMeeting = addMeeting;
+    }
+    public void setAddJournal(AddJournal addJournal) {
+        this.addJournal = addJournal;
     }
 
 

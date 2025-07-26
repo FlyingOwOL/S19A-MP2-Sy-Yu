@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import java.awt.Color;
 
@@ -24,6 +25,7 @@ public class AddEvent extends PopUpFormat {
     private JLabel endDateLabel = new JLabel("End date:");
     private JLabel detailsLabel = new JLabel("Details:");
 
+    private JTextField titleField = new JTextField("");
     private JTextField organizerField = new JTextField();
     private JTextField venueField = new JTextField();
     private JTextField startDateField = new JTextField();
@@ -52,6 +54,8 @@ public class AddEvent extends PopUpFormat {
         headerPanel.add(titleLabel);
 
         // components for contentPane
+        titleField.setBounds(20, 20, 360, 30);
+
         organizerLabel.setBounds(20, 20, 100, 20);
         organizerField.setBounds(120, 20, 250, 25);
         
@@ -78,6 +82,7 @@ public class AddEvent extends PopUpFormat {
         submitButton.setBounds(150, 250, 100, 30);
 
         // Add components to content panel
+        contentPanel.add(titleField);
         contentPanel.add(organizerLabel);
         contentPanel.add(organizerField);
         contentPanel.add(venueLabel);
@@ -94,5 +99,40 @@ public class AddEvent extends PopUpFormat {
         this.add(headerPanel);
         this.add(contentPanel);
         this.setVisible(true);
+    }
+    //getters
+    public JTextField getTitleField() {
+        return titleField;
+    }
+
+    public JTextField getOrganizerField() {
+        return organizerField;
+    }
+
+    public JTextField getVenueField() {
+        return venueField;
+    }
+
+    public JTextField getStartDateField() {
+        return startDateField;
+    }
+    
+
+    public JTextField getEndDateField() {
+        return endDateField;
+    }
+
+    public JTextArea getDetailArea() {
+        return detailArea;
+    }
+
+    public JButton getSubmitButton() {
+        return submitButton;
+    }
+
+
+    //setters
+    public void setButtonActionListener(ActionListener actionListener){
+        this.submitButton.addActionListener(actionListener);
     }
 }

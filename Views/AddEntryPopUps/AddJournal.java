@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 
 public class AddJournal extends PopUpFormat {
     private JPanel headerPanel = new JPanel();
@@ -54,5 +55,18 @@ public class AddJournal extends PopUpFormat {
         contentPanel.add(closeButton); // Add button to content panel
 
         this.setVisible(true);
+    }
+
+    //getters
+    public JTextArea getDetailArea() {
+        return detailArea;
+    }
+    public JButton getCloseButton() {
+        return closeButton;
+    }
+
+    //setters
+    public void setButtonActionListener(ActionListener actionListener) {
+        closeButton.addActionListener(actionListener);
     }
 }

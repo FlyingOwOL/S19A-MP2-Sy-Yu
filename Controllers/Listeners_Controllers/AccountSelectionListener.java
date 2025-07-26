@@ -1,6 +1,7 @@
 package Controllers.Listeners_Controllers;
 
 import Views.AccountPage;
+import Views.EntriesDisplayView;
 import Views.Add_Delete_Calendar_PopUps.*;
 
 import Controllers.Listeners_Add_Delete_Calendar_PopUps.AddCalendarListener;
@@ -24,6 +25,9 @@ public class AccountSelectionListener implements ActionListener {
             optionSelected = accountPage.getSelectedAccount();
             JFrame popUp = null;
             switch (optionSelected) {
+                case "View Entries": //not finished
+                    popUp = new EntriesDisplayView(this.accountPage.getCalendarByName("Sample"));
+                    break;
                 case "Switch":
                     popUp = new SwitchCalendarFrame();
                     break;

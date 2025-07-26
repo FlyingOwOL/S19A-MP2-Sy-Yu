@@ -2,7 +2,7 @@ package Views;
 
 import Utilities.FixedValues;
 import Models.Entry.*;
-import Models.Entry.Event;
+import Models.Entry.EventEntry;
 import Models.Calendar.CalendarParentModel;
 
 import javax.swing.*;
@@ -111,8 +111,8 @@ public class EntriesDisplayView extends JFrame {
                 rowData[4] = task.getPriority() + " (" + task.getStatus() + ")";
                 rowData[5] = task.getCreatedBy();
                 
-            } else if (entry instanceof Event) {
-                Event event = (Event) entry;
+            } else if (entry instanceof EventEntry) {
+                EventEntry event = (EventEntry) entry;
                 rowData[0] = "Event";
                 rowData[1] = event.getTitle();
                 rowData[2] = event.getDate().format(dateFormatter);
